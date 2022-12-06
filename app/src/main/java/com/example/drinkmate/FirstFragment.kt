@@ -1,6 +1,7 @@
 package com.example.drinkmate
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -48,17 +49,17 @@ class FirstFragment : Fragment() {
                 "name" to userData
             )
             db.collection("Users").add(user)
-            var allnames:String = "Users: "
-            val allUsers = db.collection("Users").get()
+            var allnames:String = "All Database Users: "
+            db.collection("Users").get()
                 .addOnSuccessListener { documents ->
                     for (document in documents) {
-                        allnames = allnames + document["name"].toString()
+                        Log.d("exist", document["name"].toString())
+                        val documentfield = document.getString("name")
+                        allnames = allnames + documentfield + " "
+                        binding.textView.text = allnames
                     }
                 }
-            allnames = allnames + "Thomson"
-            var toast2 = Toast.makeText(activity, allnames, Toast.LENGTH_LONG)
-            toast2.show()
-            binding.textView.text = allnames
+//            binding.textView.text = allnames
         }
     }
 
