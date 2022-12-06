@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "293999018124",
+    "project_id": "cecs-491a-drinkmate",
+    "storage_bucket": "cecs-491a-drinkmate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293999018124:android:6a76c6703f999d2be5bba9",
+        "android_client_info": {
+          "package_name": "com.example.drinkmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293999018124-p3502d0l9qkpltr5ij84inhfs90iv3j1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChY5HVsJ1xa4w7u4pI8t31veu1qYYwg3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293999018124-p3502d0l9qkpltr5ij84inhfs90iv3j1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
