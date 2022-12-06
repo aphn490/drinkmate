@@ -40,14 +40,12 @@
         app:layout_constraintStart_toStartOf="@+id/button_first"
         app:layout_constraintTop_toBottomOf="@+id/textview_first" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="330dp"
-        android:layout_height="178dp"
-        android:layout_marginBottom="21dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Database Information"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="341dp"
+        android:layout_height="181dp"
+        android:layout_marginBottom="26dp"
+        android:text="Database Information: "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/button_first"
         app:layout_constraintStart_toStartOf="@+id/button_first" />
