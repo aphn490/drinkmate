@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 
+// Class for the Blood Alcohol Content calculator.
 class Calculator : Fragment() {
 
     // Inflates the fragment view so that it shows the fragment on the screen

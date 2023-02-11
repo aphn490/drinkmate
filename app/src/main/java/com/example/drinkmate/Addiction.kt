@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import android.widget.Button
 
+// Class for the resources for alcoholic addiction
 class Addiction : Fragment() {
 
     override fun onCreateView(
