@@ -15,4 +15,5 @@
     <string name="password">password</string>
     <string name="CreateAccount">Create Account</string>
     <string name="confirmpassword">confirm password</string>
+    <string name="clickToLogin"> Click To Login</string>
 </resources>

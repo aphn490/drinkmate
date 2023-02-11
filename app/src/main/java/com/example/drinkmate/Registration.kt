@@ -1,8 +1,11 @@
 package com.example.drinkmate
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
+import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.drinkmate.databinding.ActivityMainBinding
@@ -19,17 +22,24 @@ class Registration : AppCompatActivity() {
     private lateinit var confPass: TextInputEditText
     private lateinit var confButton: Button
     private lateinit var auth: FirebaseAuth
+    private lateinit var textView: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
         // set variables to what is currently in the edit text box in activity.
-        this.email = findViewById(R.id.email)
-        this.password = findViewById(R.id.password)
-        this.confPass = findViewById(R.id.confirmPassword)
-        this.confButton = findViewById(R.id.Create_Account)
-        this.auth = FirebaseAuth.getInstance()
+        email = findViewById(R.id.email)
+        password = findViewById(R.id.password)
+        confPass = findViewById(R.id.confirmPassword)
+        confButton = findViewById(R.id.Create_Account)
+        auth = FirebaseAuth.getInstance()
+        textView = findViewById(R.id.loginNow)
+
+        textView.setOnClickListener{
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
+        }
 
         confButton.setOnClickListener {
             val em = email.text.toString()
@@ -39,20 +49,13 @@ class Registration : AppCompatActivity() {
             if (em.isNotEmpty() && pas.isNotEmpty() && cpas.isNotEmpty()) {
                 if (pas == cpas) {
                     auth.createUserWithEmailAndPassword(em, pas)
-                        .addOnCompleteListener(this) { task ->
+                        .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 // Sign in success, update UI with the signed-in user's information
-                                Log.d(TAG, "createUserWithEmail:success")
-                                val user = auth.currentUser
-                                updateUI(user)
+                                Toast.makeText( this@Registration, "Account Created", Toast.LENGTH_SHORT).show()
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                                Toast.makeText(
-                                    baseContext, "Authentication failed.",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                updateUI(null)
+                                Toast.makeText( this@Registration, "Authentication Failed", Toast.LENGTH_SHORT).show()
                             }
                         }
                 } else {
@@ -63,26 +66,6 @@ class Registration : AppCompatActivity() {
                 Toast.makeText( this@Registration, "Empty Fields Are Not Allowed", Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-    private fun regAccount(em: String, pw: String, cpw:String) {
-        val db = FirebaseFirestore.getInstance()
-        val user: MutableMap<String, Any> = HashMap()
-        if (em.isNotEmpty() && pw.isNotEmpty() && cpw.isNotEmpty()) {
-            if (pw == cpw) {
-                user["email"] = em
-                user["password"] = pw
-                db.collection("UserAccounts")
-                    .add(user)
-                    .addOnSuccessListener {
-                        Toast.makeText(this@Registration,"Account Created Successfully",Toast.LENGTH_SHORT).show()
-                    }
-                    .addOnFailureListener {
-                        Toast.makeText(this@Registration,"Error Adding Record",Toast.LENGTH_SHORT).show()
-                    }
-            }
-        } else
-            Toast.makeText( this@Registration, "Empty Fields Are Not Allowed", Toast.LENGTH_SHORT).show()
     }
 
 }

@@ -79,5 +79,13 @@
         android:text="@string/CreateAccount"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:id="@+id/loginNow"
+        android:text="@string/clickToLogin"
+        />
+
 
 </LinearLayout>
