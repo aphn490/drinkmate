@@ -10,6 +10,9 @@
 
     <string name="dev_env">Developer Environment Setup Testing</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Login">Login</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="CreateAccount">Create Account</string>
+    <string name="confirmpassword">confirm password</string>
 </resources>
