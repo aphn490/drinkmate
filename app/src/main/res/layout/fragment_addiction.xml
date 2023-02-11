@@ -23,68 +23,42 @@
             android:id="@+id/textView13"
             android:layout_width="294dp"
             android:layout_height="63dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="528dp"
             android:gravity="center"
             android:text="California Department of Corrections and Rehab: California-specific services to help those who suffer from alcohol addiction"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toEndOf="@+id/cdcrImage"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- CDCR Textbox-->
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="96dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="528dp"
-            android:gravity="center"
-            android:text="CDCR"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/textView13"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- NIH Description Textbox -->
         <TextView
             android:id="@+id/textView6"
             android:layout_width="296dp"
             android:layout_height="62dp"
+            android:layout_marginStart="1dp"
             android:layout_marginTop="228dp"
             android:gravity="center"
             android:text="National Institute on Alcohol Abuse and Alcoholism: Provides signs of a possible alcohol addiction"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toEndOf="@+id/nihImage"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- AAC Textbox-->
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="96dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="432dp"
-            android:gravity="center"
-            android:text="AAC"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/textView11"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- AAC Description Textbox-->
         <TextView
             android:id="@+id/textView11"
             android:layout_width="296dp"
             android:layout_height="60dp"
+            android:layout_marginStart="13dp"
             android:layout_marginTop="432dp"
             android:gravity="center"
             android:text="American Addiction Centers: Take a self-assessment to see if you're addicted to alcohol"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toEndOf="@+id/aacImage"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- CDC Description Textbox-->
@@ -92,70 +66,32 @@
             android:id="@+id/textView9"
             android:layout_width="294dp"
             android:layout_height="64dp"
+            android:layout_marginStart="7dp"
             android:layout_marginTop="328dp"
             android:gravity="center"
             android:text="Centers for Disease Control and Prevention: Provides details on how to prevent excessive alcohol use"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toEndOf="@+id/cdcImage"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- CDC Textbox-->
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="96dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="328dp"
-            android:layout_marginEnd="2dp"
-            android:gravity="center"
-            android:text="CDC"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/textView9"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- SAMSHA Textbox-->
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="96dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="136dp"
-            android:gravity="center"
-            android:text="SAMSHA"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/textView5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- SAMSHA Description Textbox-->
         <TextView
             android:id="@+id/textView5"
             android:layout_width="286dp"
             android:layout_height="62dp"
+            android:layout_marginStart="23dp"
             android:layout_marginTop="136dp"
             android:gravity="center"
             android:text="Substance Abuse and Mental Health Services Administration: Features a 24/7 treatment referral and information service"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toEndOf="@+id/samshaImage"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- NIH Textbox-->
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="96dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="228dp"
-            android:gravity="center"
-            android:text="NIH"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/textView6"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Addiction Title Textbox-->
         <TextView
@@ -181,7 +117,7 @@
             android:layout_height="19dp"
             android:layout_marginStart="84dp"
             android:layout_marginEnd="84dp"
-            android:text="Click on acronym to visit webpage"
+            android:text="Click on their logos to visit webpage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
@@ -245,6 +181,62 @@
             android:text="Button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adc" />
+
+        <!-- SAMSHA Logo image -->
+
+        <ImageView
+            android:id="@+id/samshaImage"
+            android:layout_width="83dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/samsha"
+            app:layout_constraintStart_toStartOf="@+id/samsha"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <!-- NIH Logo image -->
+        <ImageView
+            android:id="@+id/nihImage"
+            android:layout_width="98dp"
+            android:layout_height="81dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="110dp"
+            android:src="@drawable/nih"
+            app:layout_constraintStart_toStartOf="@+id/nih"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <!-- CDC Logo Image -->
+        <ImageView
+            android:id="@+id/cdcImage"
+            android:layout_width="88dp"
+            android:layout_height="87dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="305dp"
+            android:src="@drawable/cdc"
+            app:layout_constraintStart_toStartOf="@+id/cdc"
+            app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+        <!-- AAC Logo Image -->
+        <ImageView
+            android:id="@+id/aacImage"
+            android:layout_width="83dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="312dp"
+            android:src="@drawable/aac"
+            app:layout_constraintStart_toStartOf="@+id/adc"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <!-- CDCR Logo Image -->
+        <ImageView
+            android:id="@+id/cdcrImage"
+            android:layout_width="86dp"
+            android:layout_height="87dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="402dp"
+            android:src="@drawable/cdcr"
+            app:layout_constraintStart_toStartOf="@+id/cdcr"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

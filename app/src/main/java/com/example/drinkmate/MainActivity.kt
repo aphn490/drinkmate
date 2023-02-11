@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Navigation Controller that lets you navigate between different fragments through the user
+        // Navigation Controller that lets you navigate between different fragments through the use
         // of the bottom navigation bar
         val navController = this.findNavController(R.id.nav_host_fragment)
         val navView: BottomNavigationView = findViewById(R.id.bottomNavigationView)

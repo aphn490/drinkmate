@@ -71,6 +71,7 @@ class Calculator : Fragment() {
                 val hours : Int = view.findViewById<EditText>(R.id.editHours).text.toString().toInt()
                 val total = ((((totalGrams.toDouble()) / (weight.toDouble() * 454.toDouble() * genderCoeff)) * 100.toDouble()) - (hours.toDouble() * .015))
                 view.findViewById<TextView>(R.id.bacResult).setText("Your BAC is: $total")
+                totalGrams = 0.0
             }
         }
     }
