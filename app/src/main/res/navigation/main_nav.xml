@@ -21,8 +21,8 @@
             app:destination="@id/addiction" />
         <!-- Action to transition from more fragment to congestion fragment -->
         <action
-            android:id="@+id/action_more_to_congestion2"
-            app:destination="@id/congestion2" />
+            android:id="@+id/action_more_to_congestion"
+            app:destination="@id/congestion" />
     </fragment>
     <!-- Calculator Fragment -->
     <fragment
@@ -80,7 +80,7 @@
         tools:layout="@layout/fragment_addiction" />
     <!-- Congestion fragment-->
     <fragment
-        android:id="@+id/congestion2"
+        android:id="@+id/congestion"
         android:name="com.example.drinkmate.Congestion"
         android:label="fragment_congestion"
         tools:layout="@layout/fragment_congestion" />

@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:defaultNavHost="true"
-            app:navGraph="@navigation/more_nav" />
+            app:navGraph="@navigation/main_nav" />
     </FrameLayout>
 
     <!-- Bottom Navigation View that acts as the navigation bar.-->
