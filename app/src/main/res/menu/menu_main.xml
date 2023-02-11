@@ -3,8 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.drinkmate.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/scan"
+        android:icon="@drawable/ic_baseline_camera_24"
+        android:title="Scan" />
+    <item
+        android:id="@+id/drinks"
+        android:icon="@drawable/ic_baseline_local_drink_24"
+        android:title="Drinks" />
+    <item
+        android:id="@+id/account"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Account" />
+    <item
+        android:id="@+id/social"
+        android:icon="@drawable/ic_baseline_chat_24"
+        android:title="Social" />
+    <item
+        android:id="@+id/more"
+        android:icon="@drawable/ic_baseline_more_vert_24"
+        android:title="More" />
 </menu>
