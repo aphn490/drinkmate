@@ -25,17 +25,7 @@ class Login : AppCompatActivity() {
     private lateinit var password: TextInputEditText
     private lateinit var login: Button
     private lateinit var auth: FirebaseAuth
-    private lateinit var textView: TextView
 
-    public override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        if(currentUser != null){
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
