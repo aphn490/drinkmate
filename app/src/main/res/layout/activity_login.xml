@@ -64,7 +64,7 @@
         android:textSize="14dp" />
 
     <Button
-        android:id="@+id/Create_Account"
+        android:id="@+id/CA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#FFE91E63"
