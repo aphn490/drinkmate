@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/more_nav"
+    app:startDestination="@id/scan">
+
+    <fragment
+        android:id="@+id/more"
+        android:name="com.example.drinkmate.More"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_more" >
+        <action
+            android:id="@+id/action_more_to_calculator"
+            app:destination="@id/calculator" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculator"
+        android:name="com.example.drinkmate.Calculator"
+        android:label="fragment_calculator"
+        tools:layout="@layout/fragment_calculator" />
+    <fragment
+        android:id="@+id/account"
+        android:name="com.example.drinkmate.Account"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/drinks"
+        android:name="com.example.drinkmate.Drinks"
+        android:label="fragment_drinks"
+        tools:layout="@layout/fragment_drinks" />
+    <fragment
+        android:id="@+id/scan"
+        android:name="com.example.drinkmate.Scan"
+        android:label="fragment_scan"
+        tools:layout="@layout/fragment_scan" />
+    <fragment
+        android:id="@+id/social"
+        android:name="com.example.drinkmate.Social"
+        android:label="fragment_social"
+        tools:layout="@layout/fragment_social" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.drinkmate.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+</navigation>
