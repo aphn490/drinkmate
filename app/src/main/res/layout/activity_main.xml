@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- FrameLayout to contain fragments from the navigation bar-->
     <FrameLayout
         android:id="@+id/main_frame"
         android:layout_width="0dp"
@@ -16,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Fragment that functions with the Navigation Host Fragment system-->
         <fragment
             android:id="@+id/nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -25,6 +27,7 @@
             app:navGraph="@navigation/more_nav" />
     </FrameLayout>
 
+    <!-- Bottom Navigation View that acts as the navigation bar.-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"

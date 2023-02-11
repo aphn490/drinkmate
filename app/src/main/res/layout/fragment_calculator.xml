@@ -1,19 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Calculator">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Constraint Layout to hold all of the TextViews and buttons-->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/MainColor"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Blood Alcohol Content Calculator"
-        android:textSize="45dp"
-        android:gravity="center"/>
+        android:layout_height="match_parent">
+
+        <!-- BAC Calculator Title for the page -->
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="Blood Alcohol Content Calculator"
+            android:textColor="@color/MainColor"
+            android:textSize="45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Spinner that lets the user choose between predetermined options -->
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="196dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="31dp"
+            android:text="Choose your Gender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.656"
+            app:layout_constraintStart_toEndOf="@+id/genderText"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <!-- Gender input box description -->
+        <TextView
+            android:id="@+id/genderText"
+            android:layout_width="96dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Gender"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <!-- Weight input box description -->
+        <TextView
+            android:id="@+id/weightText"
+            android:layout_width="131dp"
+            android:layout_height="68dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="88dp"
+            android:gravity="center"
+            android:text="Weight \n(in pounds)"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <!-- Input box description that states the user should input amount of hours since their first drink -->
+        <TextView
+            android:id="@+id/hoursText"
+            android:layout_width="139dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="164dp"
+            android:gravity="center"
+            android:text="Hours since First Drink"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <!-- User input box for the amount of hours since first drink-->
+        <EditText
+            android:id="@+id/editHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="37dp"
+            android:ems="10"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:text="Insert an integer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/hoursText"
+            app:layout_constraintTop_toBottomOf="@+id/editWeight" />
+
+        <!-- Drinks user input box description -->
+        <TextView
+            android:id="@+id/hoursText2"
+            android:layout_width="139dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="292dp"
+            android:gravity="center"
+            android:text="What did you drink?"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <!-- Amount of drinks in ml format user input -->
+        <EditText
+            android:id="@+id/ozText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="36dp"
+            android:ems="10"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:text="Insert Amount (in ml)"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/hoursText2"
+            app:layout_constraintTop_toBottomOf="@+id/editHours" />
+
+        <!-- User input for how the alcohol volume -->
+        <EditText
+            android:id="@+id/abvText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="36dp"
+            android:ems="10"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:text="Insert Alcohol by Volume"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/hoursText2"
+            app:layout_constraintTop_toBottomOf="@+id/ozText" />
+
+        <!-- Button that allows user to add their drink to the calculator-->
+        <Button
+            android:id="@+id/addDrinkButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="63dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="99dp"
+            android:text="Add Drink"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.437"
+            app:layout_constraintStart_toEndOf="@+id/hoursText2"
+            app:layout_constraintTop_toBottomOf="@+id/abvText" />
+
+        <!-- BAC Calculator result box that will show the user's BAC in the end -->
+        <TextView
+            android:id="@+id/bacResult"
+            android:layout_width="366dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="11dp"
+            android:text="Your BAC is: "
+            android:textSize="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calculateButton" />
+
+        <!-- Button that allows the user to run the app's calculations -->
+        <Button
+            android:id="@+id/calculateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="153dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="164dp"
+            android:text="Calculate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addDrinkButton" />
+
+        <!-- User input box that details an integer is needed -->
+        <EditText
+            android:id="@+id/editWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="37dp"
+            android:ems="10"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:text="Insert an integer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/weightText"
+            app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

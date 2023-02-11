@@ -5,43 +5,83 @@
     android:id="@+id/more_nav"
     app:startDestination="@id/scan">
 
+    <!-- More page fragment -->
     <fragment
         android:id="@+id/more"
         android:name="com.example.drinkmate.More"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" >
+        <!-- Action to transition from more fragment to calculator fragment -->
         <action
             android:id="@+id/action_more_to_calculator"
             app:destination="@id/calculator" />
+        <!-- Action to transition from more fragment to addiction fragment -->
+        <action
+            android:id="@+id/action_more_to_addiction"
+            app:destination="@id/addiction" />
+        <!-- Action to transition from more fragment to congestion fragment -->
+        <action
+            android:id="@+id/action_more_to_congestion2"
+            app:destination="@id/congestion2" />
     </fragment>
+    <!-- Calculator Fragment -->
     <fragment
         android:id="@+id/calculator"
         android:name="com.example.drinkmate.Calculator"
         android:label="fragment_calculator"
         tools:layout="@layout/fragment_calculator" />
+    <!-- Account Fragment -->
     <fragment
         android:id="@+id/account"
         android:name="com.example.drinkmate.Account"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
+    <!-- Drinks Fragment -->
     <fragment
         android:id="@+id/drinks"
         android:name="com.example.drinkmate.Drinks"
         android:label="fragment_drinks"
         tools:layout="@layout/fragment_drinks" />
+    <!-- Scan Fragment -->
     <fragment
         android:id="@+id/scan"
         android:name="com.example.drinkmate.Scan"
         android:label="fragment_scan"
         tools:layout="@layout/fragment_scan" />
+    <!-- Social Fragment -->
     <fragment
         android:id="@+id/social"
         android:name="com.example.drinkmate.Social"
         android:label="fragment_social"
         tools:layout="@layout/fragment_social" />
+    <!-- MainActivity activity -->
     <activity
         android:id="@+id/mainActivity"
         android:name="com.example.drinkmate.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <!-- Login activity -->
+    <activity
+        android:id="@+id/login2"
+        android:name="com.example.drinkmate.Login"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <!-- Registration activity -->
+    <activity
+        android:id="@+id/registration"
+        android:name="com.example.drinkmate.Registration"
+        android:label="activity_registration"
+        tools:layout="@layout/activity_registration" />
+    <!-- Addiction fragment -->
+    <fragment
+        android:id="@+id/addiction"
+        android:name="com.example.drinkmate.Addiction"
+        android:label="fragment_addiction"
+        tools:layout="@layout/fragment_addiction" />
+    <!-- Congestion fragment-->
+    <fragment
+        android:id="@+id/congestion2"
+        android:name="com.example.drinkmate.Congestion"
+        android:label="fragment_congestion"
+        tools:layout="@layout/fragment_congestion" />
 </navigation>
