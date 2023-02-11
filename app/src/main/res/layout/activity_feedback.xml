@@ -6,16 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".feedback">
 
+    <!--
+    text box for subject of feedback
+    -->
     <EditText
         android:id="@+id/subject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="true"
-        android:text="Subject"
+        android:hint="Subject"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="101dp" />
-
+    <!--
+    text box for feedback
+    -->
     <EditText
         android:id="@+id/feedback"
         android:layout_width="match_parent"
@@ -23,21 +28,26 @@
         android:enabled="true"
         android:gravity="start|top"
         android:lines="10"
-        android:text="Feedback"
+        android:hint="Feedback"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="146dp" />
-
+    <!--
+    text box for email
+    -->
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="true"
-        android:text="Please enter your email"
+        android:hint="Please enter your email"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="56dp" />
 
+    <!--
+    toolbar for visual
+    -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -46,6 +56,9 @@
         app:popupTheme="@style/Theme.Drinkmate.PopupOverlay"
         tools:ignore="MissingConstraints" />
 
+    <!--
+    button to send feedback
+    -->
     <Button
         android:id="@+id/send_button"
         android:layout_width="50mm"
@@ -55,13 +68,18 @@
         tools:layout_editor_absoluteX="40dp"
         tools:layout_editor_absoluteY="410dp" />
 
-    <Button
-        android:id="@+id/nothing"
+    <!--
+    text at top to indicate what the page is for
+    -->
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@null"
+        android:gravity="center"
         android:text="User Feedback"
+        android:textColor="#FFFFFF"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="8dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
