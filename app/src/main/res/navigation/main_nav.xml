@@ -53,7 +53,11 @@
         android:id="@+id/social"
         android:name="com.example.drinkmate.Social"
         android:label="fragment_social"
-        tools:layout="@layout/fragment_social" />
+        tools:layout="@layout/fragment_social" >
+        <action
+            android:id="@+id/action_social_to_mapsActivity"
+            app:destination="@id/mapsActivity" />
+    </fragment>
     <!-- MainActivity activity -->
     <activity
         android:id="@+id/mainActivity"
@@ -84,4 +88,9 @@
         android:name="com.example.drinkmate.Congestion"
         android:label="fragment_congestion"
         tools:layout="@layout/fragment_congestion" />
+    <activity
+        android:id="@+id/mapsActivity"
+        android:name="com.example.drinkmate.MapsActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_maps" />
 </navigation>
