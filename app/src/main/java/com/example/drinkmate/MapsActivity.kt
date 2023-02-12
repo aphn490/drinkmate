@@ -143,26 +143,32 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         //Action: Update textViewRating to display the current rating value
         //================================================
         val textViewRating = dialogView.findViewById<TextView>(R.id.textView_rating)
-        textViewRating.text = "Rating: 1/5 stars"
+        textViewRating.text = "Rating: Any"
 
         val seekBarRating = dialogView.findViewById<SeekBar>(R.id.seekBar_rating)
         var ratingValue = 0
         seekBarRating.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekbar: SeekBar?, progress: Int, fromuser: Boolean) {
                 ratingValue = progress
-                var realRatingValue = 1
-                if(ratingValue < 2) {
-                    realRatingValue = 1
-                } else if (ratingValue < 3) {
+                var realRatingValue = 0
+                if(ratingValue == 0) {
+                    realRatingValue = 0
+                } else if (ratingValue == 1) {
                     realRatingValue = 2
-                } else if (ratingValue < 4) {
+                } else if (ratingValue == 2) {
                     realRatingValue = 3
-                } else if (ratingValue < 5) {
+                } else if (ratingValue == 3) {
                     realRatingValue = 4
+                } else if (ratingValue == 4) {
+                    realRatingValue = 5
                 } else if (ratingValue == 5) {
                     realRatingValue = 5
                 }
-                textViewRating.text = "Rating: ${realRatingValue}/5 stars"
+                if (realRatingValue == 0) {
+                    textViewRating.text = "Rating: Any"
+                } else {
+                    textViewRating.text = "Rating: ${realRatingValue}/5 stars"
+                }
             }
             override fun onStartTrackingTouch(seekbar: SeekBar?) {
                 println("onStartTrackingTouch")
@@ -527,6 +533,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
         //Temp fix for infoWindow image not showing until after 2nd click
         marker.hideInfoWindow()
+        marker.showInfoWindow()
         marker.showInfoWindow()
         return false
     }
