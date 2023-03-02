@@ -16,4 +16,7 @@
     <string name="CreateAccount">Create Account</string>
     <string name="confirmpassword">confirm password</string>
     <string name="clickToLogin">ClickToLogIn</string>
+    <string name="title_activity_drinkinggame">Drinkinggame</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
 </resources>
