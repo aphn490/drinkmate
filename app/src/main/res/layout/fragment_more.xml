@@ -7,17 +7,57 @@
     android:id="@+id/more_frame"
     tools:context=".More">
 
-    <Button
-        android:id="@+id/bacButton"
-        android:layout_width="match_parent"
-        android:layout_height="78dp"
-        android:alpha="0"
-        android:text="Button" />
-
+    <!-- Constraint Layout that will hold all the screen's buttons and TextViews -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Button that moves the user to the Bar Congestion fragment when clicked -->
+        <Button
+            android:id="@+id/congestionButton"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:alpha="0"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addictionButton" />
+
+        <!-- Bar Congestion Map description-->
+        <TextView
+            android:id="@+id/congestion"
+            android:layout_width="293dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="112dp"
+            android:layout_marginEnd="16dp"
+            android:text="Bar Congestion Map"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bacDescription" />
+
+        <!-- Image that shows a crowd of people for congestion map-->
+        <ImageView
+            android:id="@+id/congestionImage"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/ic_baseline_people_alt_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <!-- Button that will navigate to the BAC Calculator fragment when clicked -->
+        <Button
+            android:id="@+id/bacButton"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:alpha="0"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Image of a calculate vector -->
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="75dp"
@@ -26,6 +66,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Description of the button/image that will send you to the BAC Calculator -->
         <TextView
             android:id="@+id/bacDescription"
             android:layout_width="293dp"
@@ -34,10 +75,42 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="19dp"
             android:text="BAC Calculator"
-            android:textSize = "30dp"
+            android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Description of the addiction resources image/button -->
+        <TextView
+            android:id="@+id/bacDescription2"
+            android:layout_width="293dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="19dp"
+            android:text="Addiction Resources"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bacDescription" />
+
+        <!-- Image of a book that shows resources -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/ic_baseline_menu_book_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <!-- Button that sends you to the Resources to fight Alcohol Addiction app -->
+        <Button
+            android:id="@+id/addictionButton"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:alpha="0"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/bacButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

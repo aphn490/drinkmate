@@ -7,9 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 
 class More : Fragment() {
 
@@ -19,9 +16,24 @@ class More : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_more, container, false)
         val navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-        val button : Button = view.findViewById(R.id.bacButton)
-        button.setOnClickListener(){
+        // Creates a value that references the Blood Alcohol Content Calculator Button
+        val bacButton : Button = view.findViewById(R.id.bacButton)
+        bacButton.setOnClickListener(){
+            // Navigates the fragment to the bac calculator fragment
             navController.navigate(R.id.action_more_to_calculator)
+        }
+        // Creates a value that references the Resources to fight Addiction Button
+        val resButton : Button = view.findViewById(R.id.addictionButton)
+        resButton.setOnClickListener(){
+            // Navigates the fragment to the addiction resources fragment
+            navController.navigate(R.id.action_more_to_addiction)
+        }
+
+        // Creates a value that references the Resources to fight Addiction Button
+        val congestionButton : Button = view.findViewById(R.id.congestionButton)
+        congestionButton.setOnClickListener(){
+            // Navigates the fragment to the addiction resources fragment
+            navController.navigate(R.id.action_more_to_congestion)
         }
         return view
     }
