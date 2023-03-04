@@ -143,40 +143,5 @@
             android:src="@drawable/drinkinggameimage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/congestionImage" />
-            
-        <!-- Description of the chat image/button -->
-        <TextView
-            android:id="@+id/chatDescription"
-            android:layout_width="293dp"
-            android:layout_height="49dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="19dp"
-            android:text="Chat"
-            android:textSize="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/congestion"
-            />
-
-        <!-- Image of chat icon -->
-        <ImageView
-            android:id="@+id/chatIcon"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            app:layout_constraintTop_toBottomOf="@id/congestionImage"
-            app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/chaticon"
-            />
-
-        <!-- Button that sends you to the chat menu -->
-        <Button
-            android:id="@+id/chatButton"
-            android:layout_width="match_parent"
-            android:layout_height="78dp"
-            android:alpha="0"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/chatDescription"
-            app:layout_constraintTop_toBottomOf="@id/congestion"
-            />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
