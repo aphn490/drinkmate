@@ -23,10 +23,19 @@
         <action
             android:id="@+id/action_more_to_congestion"
             app:destination="@id/congestion" />
+
+        <!-- Action to transition from more fragment to congestion fragment -->
+        <action
+            android:id="@+id/action_more_to_game"
+            app:destination="@id/game" />
+        <action
+            android:id="@+id/action_more_to_games"
+            app:destination="@id/games" />
         <!-- Action to transition from more fragment to chat fragment -->
         <action
             android:id="@+id/action_more_to_chat"
             app:destination="@+id/chat" />
+            
     </fragment>
     <!-- Calculator Fragment -->
     <fragment
@@ -57,7 +66,11 @@
         android:id="@+id/social"
         android:name="com.example.drinkmate.Social"
         android:label="fragment_social"
-        tools:layout="@layout/fragment_social" />
+        tools:layout="@layout/fragment_social" >
+        <action
+            android:id="@+id/action_social_to_mapsActivity"
+            app:destination="@id/mapsActivity" />
+    </fragment>
     <!-- MainActivity activity -->
     <activity
         android:id="@+id/mainActivity"
@@ -88,11 +101,22 @@
         android:name="com.example.drinkmate.Congestion"
         android:label="fragment_congestion"
         tools:layout="@layout/fragment_congestion" />
-
+    <activity
+        android:id="@+id/mapsActivity"
+        android:name="com.example.drinkmate.MapsActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_maps" />
+    <fragment
+        android:id="@+id/games"
+        android:name="com.example.drinkmate.games"
+        android:label="games"
+        tools:layout="@layout/fragment_games" />
+        
     <!-- Chat Fragment -->
     <fragment
         android:id="@+id/chat"
         android:name="com.example.drinkmate.globalChatMenu"
         android:label="fragment_global_chat"
         tools:layout="@layout/fragment_global_chat" />
+        
 </navigation>

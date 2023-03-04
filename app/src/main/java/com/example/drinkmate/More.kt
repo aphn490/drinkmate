@@ -36,10 +36,19 @@ class More : Fragment() {
             navController.navigate(R.id.action_more_to_congestion)
         }
 
+
+        // Creates a value that references the drinking games Button
+        val gameButton : Button = view.findViewById(R.id.gameButton)
+        gameButton.setOnClickListener(){
+            // Navigates the fragment to the drinking games fragment
+            navController.navigate(R.id.action_more_to_games)
+        }
+        
+        // Creates a value that references the chat button
         val chatButton : Button = view.findViewById(R.id.chatButton)
         chatButton.setOnClickListener(){
+            // Navigates the fragment to the chat fragment
             navController.navigate(R.id.action_more_to_chat)
-        }
         return view
     }
 }

@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.navigation.fragment.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -15,10 +13,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Social.newInstance] factory method to
+ * Use the [kingscup.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Social : Fragment() {
+class kingscup : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -35,18 +33,8 @@ class Social : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //
-        val socialView = inflater.inflate(R.layout.fragment_social, container, false)
-        val mapButton = socialView.findViewById<Button>(R.id.button_toMap)
-
-        //Create a click listener for the map button and implement action, navigates to bar map when clicked
-        mapButton.setOnClickListener {
-            findNavController().navigate(R.id.action_social_to_mapsActivity)
-        }
-
         // Inflate the layout for this fragment
-        return socialView
-        //return inflater.inflate(R.layout.fragment_social, container, false)
+        return inflater.inflate(R.layout.fragment_kingscup, container, false)
     }
 
     companion object {
@@ -56,12 +44,12 @@ class Social : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment SocialFragment.
+         * @return A new instance of fragment kingscup.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Social().apply {
+            kingscup().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
