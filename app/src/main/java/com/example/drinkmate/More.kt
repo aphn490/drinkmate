@@ -35,6 +35,11 @@ class More : Fragment() {
             // Navigates the fragment to the addiction resources fragment
             navController.navigate(R.id.action_more_to_congestion)
         }
+
+        val chatButton : Button = view.findViewById(R.id.chatButton)
+        chatButton.setOnClickListener(){
+            navController.navigate(R.id.)
+        }
         return view
     }
 }
