@@ -105,4 +105,5 @@
         android:name="com.example.drinkmate.games"
         android:label="games"
         tools:layout="@layout/fragment_games" />
+
 </navigation>
