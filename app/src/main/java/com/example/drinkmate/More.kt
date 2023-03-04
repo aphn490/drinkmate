@@ -35,6 +35,13 @@ class More : Fragment() {
             // Navigates the fragment to the addiction resources fragment
             navController.navigate(R.id.action_more_to_congestion)
         }
+
+        // Creates a value that references the drinking games Button
+        val gameButton : Button = view.findViewById(R.id.gameButton)
+        gameButton.setOnClickListener(){
+            // Navigates the fragment to the drinking games fragment
+            navController.navigate(R.id.action_more_to_games)
+        }
         return view
     }
 }
