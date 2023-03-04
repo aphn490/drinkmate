@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_more_to_games"
             app:destination="@id/games" />
+        <action
+            android:id="@+id/action_more_to_chat"
+            app:destination="@+id/chat"/>
     </fragment>
     <!-- Calculator Fragment -->
     <fragment
@@ -105,5 +108,10 @@
         android:name="com.example.drinkmate.games"
         android:label="games"
         tools:layout="@layout/fragment_games" />
+    <fragment
+        android:id="@+id/chat"
+        android:name="com.example.drinkmate.chat"
+        android:label="chat"
+        tools:layout="@layout/fragment_chat" />
 
 </navigation>
