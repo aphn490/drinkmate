@@ -38,7 +38,7 @@ class More : Fragment() {
 
         val chatButton : Button = view.findViewById(R.id.chatButton)
         chatButton.setOnClickListener(){
-            navController.navigate(R.id.)
+            navController.navigate(R.id.action_more_to_chat)
         }
         return view
     }
