@@ -112,5 +112,35 @@
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/bacButton" />
 
+        <!-- Button that sends you to drinking games -->
+        <Button
+            android:id="@+id/gameButton"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:alpha="0"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/congestionButton" />
+
+        <!-- Description of drinking games -->
+        <TextView
+            android:id="@+id/game"
+            android:layout_width="293dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:text="Drinking Games"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/congestion" />
+
+        <ImageView
+            android:id="@+id/drinkingGameImage"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/drinkinggameimage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/congestionImage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
