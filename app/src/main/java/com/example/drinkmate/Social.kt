@@ -1,5 +1,6 @@
 package com.example.drinkmate
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -38,10 +39,15 @@ class Social : Fragment() {
         //
         val socialView = inflater.inflate(R.layout.fragment_social, container, false)
         val mapButton = socialView.findViewById<Button>(R.id.button_toMap)
+        val friendsButton = socialView.findViewById<Button>(R.id.button_toFriendsChat)
 
         //Create a click listener for the map button and implement action, navigates to bar map when clicked
         mapButton.setOnClickListener {
             findNavController().navigate(R.id.action_social_to_mapsActivity)
+        }
+
+        friendsButton.setOnClickListener {
+            findNavController().navigate(R.id.action_social_to_friendsChatTab2)
         }
 
         // Inflate the layout for this fragment

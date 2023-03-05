@@ -3,16 +3,16 @@ package com.example.drinkmate
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
-import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.drinkmate.databinding.ActivityMainBinding
-import com.example.drinkmate.databinding.ActivityRegistrationBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.android.gms.tasks.OnCompleteListener
+import android.util.Log
+import com.google.firebase.messaging.FirebaseMessaging
+
 
 class Registration : AppCompatActivity() {
 
@@ -23,6 +23,7 @@ class Registration : AppCompatActivity() {
     private lateinit var confButton: Button
     private lateinit var auth: FirebaseAuth
     private lateinit var textView: TextView
+    private lateinit var userDevice: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +54,34 @@ class Registration : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 // Sign in success, update UI with the signed-in user's information
                                 Toast.makeText( this@Registration, "Account Created", Toast.LENGTH_SHORT).show()
+
+                                FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+                                    if (!task.isSuccessful) {
+                                        Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                                        return@OnCompleteListener
+                                    }
+
+                                    // Get new FCM registration token
+                                    val token = task.result
+                                    userDevice = token
+
+                                    // Log and toast
+                                    Log.d(TAG, token)
+                                    Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
+                                })
+
+                                val firebaseUser = auth.currentUser
+
+                                val user = User(
+                                    uid = firebaseUser?.uid ?: "",
+                                    deviceToken = userDevice,
+                                    userName = em,
+                                    email = em
+                                )
+                                val db = FirestoreUtil.getFirestore()
+
+                                db.collection("users").document(firebaseUser?.uid ?: "").set(user)
+
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Toast.makeText( this@Registration, "Authentication Failed", Toast.LENGTH_SHORT).show()
