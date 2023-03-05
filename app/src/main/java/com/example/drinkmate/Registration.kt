@@ -1,18 +1,15 @@
 package com.example.drinkmate
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
-import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.drinkmate.databinding.ActivityMainBinding
-import com.example.drinkmate.databinding.ActivityRegistrationBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class Registration : AppCompatActivity() {
 
@@ -35,6 +32,7 @@ class Registration : AppCompatActivity() {
         confButton = findViewById(R.id.Create_Account)
         auth = FirebaseAuth.getInstance()
         textView = findViewById(R.id.loginNow)
+        val db = Firebase.firestore
 
         textView.setOnClickListener{
             val intent = Intent(this, Login::class.java)
@@ -53,6 +51,12 @@ class Registration : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 // Sign in success, update UI with the signed-in user's information
                                 Toast.makeText( this@Registration, "Account Created", Toast.LENGTH_SHORT).show()
+                                val user = hashMapOf(
+                                    "UID" to (auth.uid),
+                                    "email" to em
+                                )
+                                db.collection("UserAccounts").add(user)
+
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Toast.makeText( this@Registration, "Authentication Failed", Toast.LENGTH_SHORT).show()

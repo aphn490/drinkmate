@@ -47,7 +47,8 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:layout_marginStart="50dp"
-        android:hint="@string/password" />
+        android:hint="@string/password"
+        android:inputType="textPassword"/>
 
     <TextView
         android:layout_marginTop="100dp"
@@ -67,7 +68,8 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:layout_marginStart="50dp"
-        android:hint="@string/confirmpassword" />
+        android:hint="@string/confirmpassword"
+        android:inputType="textPassword"/>
 
     <Button
         android:layout_marginTop="50dp"
