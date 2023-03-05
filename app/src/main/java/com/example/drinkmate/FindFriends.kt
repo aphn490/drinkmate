@@ -1,12 +1,11 @@
 package com.example.drinkmate
 
+import android.app.Person
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.Toolbar
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.*
@@ -36,7 +35,20 @@ class FindFriends : AppCompatActivity() {
 
         searchRecyclerView.adapter = myUserAdapter
 
+        myUserAdapter.setOnItemClickListener(object : UserAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+                val intent = Intent(this@FindFriends,PersonAccount::class.java)
+                intent.putExtra("UID", userArrayList[position].UID)
+                intent.putExtra("email", userArrayList[position].email)
+                startActivity(intent)
+                //Toast.makeText(this@FindFriends, "CLICKED ON ACC " + userArrayList[position].email.toString(), Toast.LENGTH_SHORT).show()
+
+            }
+
+        })
+
         eventChangeListener()
+
 
 
     }
