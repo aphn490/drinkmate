@@ -42,6 +42,12 @@
                 android:maxLines="10"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
+            <TextView
+                android:layout_width = "wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/toCongestion"
+                android:text="Click This Window To Favorite Bar"
+                android:textColor="@color/white"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

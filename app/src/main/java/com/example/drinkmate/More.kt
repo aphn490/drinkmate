@@ -29,7 +29,7 @@ class More : Fragment() {
             navController.navigate(R.id.action_more_to_addiction)
         }
 
-        // Creates a value that references the Resources to fight Addiction Button
+        // Creates a value that references the Congestion Button
         val congestionButton : Button = view.findViewById(R.id.congestionButton)
         congestionButton.setOnClickListener(){
             // Navigates the fragment to the addiction resources fragment

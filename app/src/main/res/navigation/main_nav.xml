@@ -57,6 +57,9 @@
         <action
             android:id="@+id/action_social_to_mapsActivity"
             app:destination="@id/mapsActivity" />
+        <action
+            android:id="@+id/action_social_to_congestion"
+            app:destination="@id/congestion" />
     </fragment>
     <!-- MainActivity activity -->
     <activity
@@ -87,10 +90,19 @@
         android:id="@+id/congestion"
         android:name="com.example.drinkmate.Congestion"
         android:label="fragment_congestion"
-        tools:layout="@layout/fragment_congestion" />
+        tools:layout="@layout/fragment_congestion" >
+        <action
+            android:id="@+id/action_congestion_to_congestionMap"
+            app:destination="@id/congestionMap" />
+    </fragment>
     <activity
         android:id="@+id/mapsActivity"
         android:name="com.example.drinkmate.MapsActivity"
         android:label="activity_maps"
         tools:layout="@layout/activity_maps" />
+    <fragment
+        android:id="@+id/congestionMap"
+        android:name="com.example.drinkmate.CongestionMap"
+        android:label="fragment_congestion_map"
+        tools:layout="@layout/fragment_congestion_map" />
 </navigation>

@@ -3,6 +3,7 @@ package com.example.drinkmate
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Geocoder
@@ -13,6 +14,7 @@ import android.os.Bundle
 import android.os.StrictMode
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
@@ -23,17 +25,22 @@ import com.example.drinkmate.databinding.ActivityMapsBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.*
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener
 import com.google.android.gms.maps.model.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
 import java.util.concurrent.TimeUnit
-import kotlin.concurrent.thread
 import kotlin.math.roundToInt
 
 //MapActivity class represents the activity implementation for the bar map
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener, OnInfoWindowClickListener {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
@@ -47,6 +54,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     private var isGPS: Boolean = false
     private var PERMISSION_ID = 44
     private var barObjArrayListGlobal: ArrayList<BarEntity.Bar>? = null
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -270,7 +278,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     //
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
+        mMap.setOnInfoWindowClickListener(this)
         //Customize the UI Settings for Google Map
         mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN
 
@@ -331,6 +339,77 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             }
         }
     }
+
+    // Overrides the function that listens to user clicking on the info window that pops up
+    override fun onInfoWindowClick(marker: Marker) {
+        // Retrieves the user ID from firebase's authentication
+        val currentuid = FirebaseAuth.getInstance().currentUser?.uid
+        // Sets the marker information to a bar entity object
+        val bar = marker.tag as BarEntity.Bar
+        // Creates a hashmap of bar information that consists of the bar's coordinates, name, and url image.
+        val locBar = hashMapOf (
+            "name" to bar.name,
+            "lat" to bar.coordinates.latitude,
+            "long" to bar.coordinates.longitude,
+            "image" to bar.image_url
+                )
+
+        // Brings up the document under the FavoriteBars collection that has the user's id from firebase
+        val namesRef = db.collection("FavoriteBars").document(currentuid.toString())
+        namesRef.get().addOnCompleteListener {
+            task ->
+            //Once the task is completed, it'll undergo the following code
+            if (task.isSuccessful) {
+                val doc = task.result
+                // If bar 1 doesn't exist yet, it will update the document with the bar details under
+                // the name "bar1"
+                if (doc.get("bar1") == null) {
+                    val favBar = hashMapOf (
+                        "bar1" to locBar
+                    )
+                    db.collection("FavoriteBars").document(currentuid.toString()).set(favBar, SetOptions.merge())
+                    Toast.makeText(this, "Added " + bar.name + " as a favorite bar", Toast.LENGTH_SHORT).show()
+                    // If bar 2 doesn't exist yet, it will update the document with the bar details under
+                    // the name "bar2"
+                } else if (doc.get("bar2") == null) {
+                    val favBar = hashMapOf (
+                        "bar2" to locBar
+                    )
+                    db.collection("FavoriteBars").document(currentuid.toString()).set(favBar, SetOptions.merge())
+                    Toast.makeText(this, "Added " + bar.name + " as a favorite bar", Toast.LENGTH_SHORT).show()
+                    // If bar 3 doesn't exist yet, it will update the document with the bar details under
+                    // the name "bar3"
+                } else if (doc.get("bar3") == null) {
+                    val favBar = hashMapOf (
+                        "bar3" to locBar
+                    )
+                    db.collection("FavoriteBars").document(currentuid.toString()).set(favBar, SetOptions.merge())
+                    Toast.makeText(this, "Added " + bar.name + " as a favorite bar", Toast.LENGTH_SHORT).show()
+                    // If bar 4 doesn't exist yet, it will update the document with the bar details under
+                    // the name "bar4"
+                } else if (doc.get("bar4") == null) {
+                    val favBar = hashMapOf (
+                        "bar4" to locBar
+                    )
+                    db.collection("FavoriteBars").document(currentuid.toString()).set(favBar, SetOptions.merge())
+                    Toast.makeText(this, "Added " + bar.name + " as a favorite bar", Toast.LENGTH_SHORT).show()
+                    // If bar 5 doesn't exist yet, it will update the document with the bar details under
+                    // the name "bar5"
+                } else if (doc.get("bar5") == null) {
+                    val favBar = hashMapOf (
+                        "bar5" to locBar
+                    )
+                    db.collection("FavoriteBars").document(currentuid.toString()).set(favBar, SetOptions.merge())
+                    Toast.makeText(this, "Added " + bar.name + " as a favorite bar", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Max Favorite Bars reached. Delete in more settings page.", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Log.d(TAG, "get failed with ", task.exception)
+            }
+        }
+        }
+
 
     //Get barObjArrayListGlobal, arraylist of bar objects
     fun getBarObjArrayList(): ArrayList<BarEntity.Bar>? {
@@ -537,4 +616,5 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         marker.showInfoWindow()
         return false
     }
+
 }
