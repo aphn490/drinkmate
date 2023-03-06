@@ -199,6 +199,10 @@ class PersonAccount : AppCompatActivity() {
         }
     }
 
+    /**
+     * Method for removing/declining friend
+     * deletes their respective documents in the "friends" subcollection in the db
+     */
     private fun RemoveOrDeclineFriend(){
         CURRENT_STATE = "not_friends"
         auth = FirebaseAuth.getInstance()
