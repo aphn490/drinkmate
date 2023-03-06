@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.auth.User
 import com.google.firebase.firestore.ktx.firestore
@@ -41,15 +42,13 @@ class FindFriends : AppCompatActivity() {
                 intent.putExtra("UID", userArrayList[position].UID)
                 intent.putExtra("email", userArrayList[position].email)
                 startActivity(intent)
-                //Toast.makeText(this@FindFriends, "CLICKED ON ACC " + userArrayList[position].email.toString(), Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@FindFriends, "CURRENT USER: " + auth.currentUser?.uid.toString(), Toast.LENGTH_SHORT).show()
 
             }
 
         })
 
         eventChangeListener()
-
-
 
     }
 
