@@ -55,7 +55,7 @@ class Registration : AppCompatActivity() {
                                     "UID" to (auth.uid),
                                     "email" to em
                                 )
-                                db.collection("UserAccounts").add(user)
+                                auth.uid?.let { it1 -> db.collection("UserAccounts").document(it1).set(user) }
 
                             } else {
                                 // If sign in fails, display a message to the user.
