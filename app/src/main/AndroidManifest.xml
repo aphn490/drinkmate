@@ -64,6 +64,20 @@
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity
+            android:name=".Drinkinggame"
+            android:exported="false"
+            android:label="@string/title_activity_drinkinggame"
+            android:theme="@style/Theme.Drinkmate.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".Registration"
             android:exported="false">
             <meta-data
@@ -91,6 +105,15 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+        </activity>
+        <activity
+            android:name=".feedback"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
