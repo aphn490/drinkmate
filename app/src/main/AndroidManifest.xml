@@ -33,23 +33,11 @@
             </intent-filter>
         </service>
         <activity
-            android:name=".MainActivity2"
-            android:exported="false"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.Drinkmate.NoActionBar">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:name=".FindFriends"
+            android:exported="false" />
         <activity
-            android:name=".FriendsChatActivity"
-            android:exported="false"
-            android:label="@string/title_activity_friends_chat"
-            android:theme="@style/Theme.Drinkmate.NoActionBar">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:name=".PersonAccount"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

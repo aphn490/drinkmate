@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Account">
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".PersonAccount">
     <TextView
         android:id="@+id/accName"
         android:layout_width="wrap_content"
@@ -22,15 +21,27 @@
         android:layout_gravity="center"
         android:src="@drawable/icon"
         />
-    
+
     <Button
-        android:id="@+id/findFriends"
+        android:id="@+id/sendFriendReq"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:text="Find Friends"
+        android:text="Send Friend Request"
+        android:backgroundTint="#00FF00"
+        android:textColor="@color/black"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         />
 
+    <Button
+        android:id="@+id/declineFriendReq"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:text="Decline Friend Request"
+        android:backgroundTint="#FF0000"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        />
 
 </FrameLayout>

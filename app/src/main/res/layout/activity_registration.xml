@@ -9,6 +9,27 @@
     android:orientation="vertical">
 
     <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="username"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/userName"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:background="@color/white"
+        android:hint="username"
+        android:inputType="text|textPersonName" />
+
+    <TextView
         android:layout_marginTop="100dp"
         android:layout_marginStart="50dp"
         android:layout_width="wrap_content"
@@ -47,7 +68,8 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:layout_marginStart="50dp"
-        android:hint="@string/password" />
+        android:hint="@string/password"
+        android:inputType="textPassword"/>
 
     <TextView
         android:layout_marginTop="100dp"
@@ -67,7 +89,8 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:layout_marginStart="50dp"
-        android:hint="@string/confirmpassword" />
+        android:hint="@string/confirmpassword"
+        android:inputType="textPassword"/>
 
     <Button
         android:layout_marginTop="50dp"

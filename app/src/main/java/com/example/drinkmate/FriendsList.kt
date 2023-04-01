@@ -37,9 +37,17 @@ class FriendsList : Fragment() {
 
         recyclerView = view.findViewById(R.id.rvFriends)
 
-        //Get a reference to the friends collection of each user in users collection
+        /*
+        //OLD: Get a reference to the friends collection of each user in users collection
         val query = FirebaseFirestore.getInstance()
             .collection("users")
+            .document(FirebaseAuth.getInstance().currentUser?.uid ?: "")
+            .collection("friends")
+         */
+
+        //OLD: Get a reference to the friends collection of each user in users collection
+        val query = FirebaseFirestore.getInstance()
+            .collection("UserAccounts")
             .document(FirebaseAuth.getInstance().currentUser?.uid ?: "")
             .collection("friends")
 
@@ -51,8 +59,8 @@ class FriendsList : Fragment() {
         //Initialize RecyclerView RecyclerView
         adapter = object : FirestoreRecyclerAdapter<User, FriendViewHolder>(options) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendViewHolder {
-                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_friend, parent, false)
-                return FriendViewHolder(view)
+                val friendsListView = LayoutInflater.from(parent.context).inflate(R.layout.item_friend, parent, false)
+                return FriendViewHolder(friendsListView)
             }
 
             override fun onBindViewHolder(holder: FriendViewHolder, position: Int, model: User) {
@@ -91,12 +99,20 @@ class FriendsList : Fragment() {
                 .into(profileImageView)
              */
 
-            friendNameTextView.text = user.userName
+            val fsdb = FirebaseFirestore.getInstance()
+            val usersCollectionRef = fsdb.collection("UserAccounts")
+            val userRef = usersCollectionRef.document(user.UID)
+            userRef.get().addOnSuccessListener { documentSnapshot ->
+                val field = documentSnapshot.getString("userName")
+                friendNameTextView.text = field
+            }.addOnFailureListener { exception ->
+                // handle the exception here
+            }
 
             //Create a click listener for the map button and implement action, navigates to bar map when clicked
             chatButton.setOnClickListener {
                 // Handle opening a chat with the friend
-                val friendId = user.uid // or user.documentId, depending on how you store the IDs
+                val friendId = user.UID // or user.documentId, depending on how you store the IDs
                 val chatFragment = ChatFragment.newInstance(friendId)
                 requireActivity().supportFragmentManager
                     .beginTransaction()

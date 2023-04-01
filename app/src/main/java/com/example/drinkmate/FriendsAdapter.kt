@@ -52,11 +52,12 @@ class FriendsAdapter(
 
         //Bind data to the view holder the friend item elements in the friends list
         fun bind(user: User, listener: OnItemClickListener, activity: Activity) {
+            //nameTextView.text = user.userName
             nameTextView.text = user.userName
             //Listener for when the chat option for a friend is clicked on, set the view to the chat menu view
             itemView.setOnClickListener {
                 listener.onItemClick(user)
-                val chatFragment = ChatFragment.newInstance(user.uid)
+                val chatFragment = ChatFragment.newInstance(user.UID)
                 val fragmentTransaction = (activity as FragmentActivity).supportFragmentManager.beginTransaction()
                 fragmentTransaction.replace(R.id.fc, chatFragment)
                 fragmentTransaction.addToBackStack(null)

@@ -1,8 +1,6 @@
 package com.example.drinkmate
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.messaging.FirebaseMessaging
@@ -49,11 +46,13 @@ class ChatFragment : Fragment() {
         //Get current user's token and username
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
-        val userRef = db.collection("users").document(uid!!)
+        //OLD: val userRef = db.collection("users").document(uid!!)
+        val userRef = db.collection("UserAccounts").document(uid!!)
         userRef.get().addOnSuccessListener { document ->
             if (document != null && document.exists()) {
                 friendToken = document.getString("userToken").toString()
                 val username = document.getString("userName")
+                val email = document.getString("email")
                 if (username != null) {
                     currentUser = username
                 }
@@ -147,7 +146,8 @@ class ChatFragment : Fragment() {
 
     //Set the friend's device token
     private fun getRecipientToken1(recipientId: String) {
-        val recipientRef = FirebaseFirestore.getInstance().collection("users").document(recipientId)
+        //OLD: val recipientRef = FirebaseFirestore.getInstance().collection("users").document(recipientId)
+        val recipientRef = FirebaseFirestore.getInstance().collection("UserAccounts").document(recipientId)
         recipientRef.get().addOnSuccessListener { document ->
             if (document.exists()) {
                 val recipientToken = document.getString("deviceToken")

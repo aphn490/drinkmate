@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CongestionMap">
+
+    <!-- The SupportMapFragment that will allow the app to use GoogleMaps in a fragment -->
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/trafficMap"
+        android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+    <!-- Linear layout to hold the description at the top and the photos -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- TextView that details the instructions on navigating the maps -->
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Click on pictures to navigate to bar"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:background="@color/MainColor"
+            android:textColor="@color/white"/>
+
+        <!-- Horizontal Linear Layout to hold the images -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- ImageView that has the picture of bar1 -->
+            <ImageView
+                android:id="@+id/mapBar1"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/common_google_signin_btn_icon_dark_normal_background" />
+
+            <!-- ImageView that has the picture of bar2 -->
+            <ImageView
+                android:id="@+id/mapBar2"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/common_google_signin_btn_icon_dark_normal_background" />
+
+            <!-- ImageView that has the picture of bar3 -->
+            <ImageView
+                android:id="@+id/mapBar3"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/common_google_signin_btn_icon_dark_normal_background" />
+
+            <!-- ImageView that has the picture of bar4 -->
+            <ImageView
+                android:id="@+id/mapBar4"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/common_google_signin_btn_icon_dark_normal_background" />
+
+            <!-- ImageView that has the picture of bar5 -->
+            <ImageView
+                android:id="@+id/mapBar5"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/common_google_signin_btn_icon_dark_normal_background" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

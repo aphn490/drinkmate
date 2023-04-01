@@ -1,9 +1,10 @@
 package com.example.drinkmate
 
 data class User(
-    val uid: String = "",
+    val UID: String = "",
     val deviceToken: String = "",
     val userName: String = "",
     val email: String = "",
-    val profileImageUrl: String = "")
+    val profileImageUrl: String = ""
+)
 

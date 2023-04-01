@@ -1,29 +1,29 @@
 package com.example.drinkmate
 
 import android.annotation.SuppressLint
-import android.app.NotificationChannel
-import android.app.NotificationManager
+//import android.app.NotificationChannel
+//import android.app.NotificationManager
 import android.content.ContentValues
-import android.content.ContentValues.TAG
+//import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
-import android.os.Build
+//import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import com.google.android.material.snackbar.Snackbar
+//import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
+//import androidx.navigation.findNavController
+//import androidx.navigation.ui.AppBarConfiguration
+//import androidx.navigation.ui.navigateUp
+//import androidx.navigation.ui.setupActionBarWithNavController
+//import android.view.Menu
+//import android.view.MenuItem
+//import android.view.View
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+//import android.widget.EditText
+//import android.widget.TextView
 import android.widget.Toast
-import com.example.drinkmate.databinding.ActivityMainBinding
+//import com.example.drinkmate.databinding.ActivityMainBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -37,7 +37,7 @@ class Login : AppCompatActivity() {
     private lateinit var password: TextInputEditText
     private lateinit var login: Button
     private lateinit var auth: FirebaseAuth
-    private lateinit var userDevice: String
+    private var userDevice: String = ""
 
 
     @SuppressLint("SuspiciousIndentation")
