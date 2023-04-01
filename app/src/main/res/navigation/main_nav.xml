@@ -67,6 +67,16 @@
         <action
             android:id="@+id/action_drinks_to_recipeCreation"
             app:destination="@id/recipeCreation" />
+        <action
+            android:id="@+id/action_drinks_to_drinkSearch"
+            app:destination="@id/drinkSearch" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/drinkSearch"
+        android:name="com.example.drinkmate.DrinkSearch"
+        android:label="fragment_drinkSearch"
+        tools:layout="@layout/fragment_drink_search">
     </fragment>
     <!-- Scan Fragment -->
     <fragment
@@ -83,6 +93,9 @@
         <action
             android:id="@+id/action_social_to_mapsActivity"
             app:destination="@id/mapsActivity" />
+        <action
+            android:id="@+id/action_social_to_friendsChatTab2"
+            app:destination="@id/friendsChatTab2" />
         <action
             android:id="@+id/action_social_to_congestion"
             app:destination="@id/congestion" />
@@ -126,7 +139,22 @@
         android:name="com.example.drinkmate.MapsActivity"
         android:label="activity_maps"
         tools:layout="@layout/activity_maps" />
-
+    <fragment
+        android:id="@+id/friendsChatTab2"
+        android:name="com.example.drinkmate.FriendsChatTab"
+        android:label="FriendsChatTab" >
+        <action
+            android:id="@+id/action_friendsChatTab2_to_chat"
+            app:destination="@id/chat" />
+    </fragment>
+    <fragment
+        android:id="@+id/friendsList"
+        android:name="com.example.drinkmate.FriendsList"
+        android:label="FriendsList" >
+        <action
+            android:id="@+id/action_friendsList_to_chat"
+            app:destination="@id/chat" />
+    </fragment>
     <fragment
         android:id="@+id/games"
         android:name="com.example.drinkmate.games"
@@ -134,7 +162,7 @@
         tools:layout="@layout/fragment_games" />
     <fragment
         android:id="@+id/chat"
-        android:name="com.example.drinkmate.chat"
+        android:name="com.example.drinkmate.ChatFragment"
         android:label="chat"
         tools:layout="@layout/fragment_chat" />
     <activity

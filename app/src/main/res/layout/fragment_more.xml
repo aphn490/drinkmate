@@ -149,7 +149,5 @@
                 android:text="Shopping Cart" />
         </LinearLayout>
 
-        <!-- Button that sends you to the chat menu -->
-
     </LinearLayout>
 </FrameLayout>
