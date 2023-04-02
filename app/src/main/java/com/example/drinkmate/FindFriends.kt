@@ -16,8 +16,6 @@ import com.google.firebase.ktx.Firebase
 
 class FindFriends : AppCompatActivity() {
 
-    private lateinit var searchButton: Button
-    private lateinit var searchInputText : EditText
     private lateinit var searchRecyclerView: RecyclerView
     private lateinit var db : FirebaseFirestore
     private lateinit var userArrayList: ArrayList<UserForRecycler>

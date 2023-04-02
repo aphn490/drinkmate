@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".GroupMainPage">
+
+    <ImageView
+        android:id="@+id/GroupIcon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/icon"
+        android:paddingTop="10dp"
+        android:layout_marginLeft="120dp"
+        />
+
+    <TextView
+        android:id="@+id/GroupName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group Name"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        android:layout_marginLeft="85dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TextView
+        android:id="@+id/GroupDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="description description description description description description description description description"
+        android:textSize="20dp"
+        android:paddingLeft="10dp"
+        />
+
+    <Button
+        android:id="@+id/InteractButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Join"
+        android:backgroundTint="#00FF00"
+        android:textColor="@color/black"
+        android:layout_marginLeft="150dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="443dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Group Members"
+                android:layout_marginLeft="5dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/AllGroupMembers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/all_users_display_layout" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="443dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friends In Group"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/MutualFriends"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/all_users_display_layout" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

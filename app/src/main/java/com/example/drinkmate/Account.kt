@@ -41,6 +41,10 @@ class Account : Fragment() {
         findFriendsButton.setOnClickListener {
             findNavController().navigate(R.id.action_more_to_find_friends)
         }
+        val findGroupButton = accountview.findViewById<Button>(R.id.findGroup)
+        findGroupButton.setOnClickListener{
+            findNavController().navigate(R.id.action_more_to_find_group)
+        }
         return accountview
     }
 
