@@ -7,6 +7,7 @@ import android.content.ContentValues
 //import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 //import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -23,6 +24,7 @@ import android.widget.Button
 //import android.widget.EditText
 //import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 //import com.example.drinkmate.databinding.ActivityMainBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.textfield.TextInputEditText
@@ -85,6 +87,9 @@ class Login : AppCompatActivity() {
                                             it1.uid).set(data, SetOptions.merge())
                                     }
 
+                                //println("LOGIN START ============================================================")
+                                //startLocationService()
+
                                 // Log and toast
                                 Log.d(ContentValues.TAG, token)
                                 Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
@@ -99,5 +104,17 @@ class Login : AppCompatActivity() {
             }
         }
     }
+
+    /*
+    private fun startLocationService() {
+        val intent = Intent(this, LocationService::class.java)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(intent)
+        } else {
+            startService(intent)
+        }
+    }
+
+     */
 
 }

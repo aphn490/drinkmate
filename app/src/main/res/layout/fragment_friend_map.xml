@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout for friend map-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Top bar -->
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/MainColor">
+
+        <!-- Back arrow button to go back to social-->
+        <ImageButton
+            android:id="@+id/back_button_toSocial"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/rounded"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_baseline_arrow_circle_left_24_white" />
+
+        <!-- Title for Friend Map-->
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Friend Map"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:textSize="20sp" />
+
+        <!-- Settings button to config Friend Map and location tracking-->
+        <ImageButton
+            android:id="@+id/friend_map_settings_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/rounded"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_baseline_settings_24_white" />
+
+    </RelativeLayout>
+
+    <!-- Map view -->
+    <!-- <com.google.android.gms.maps.SupportMapFragment
+        android:id="@+id/friend_map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_bar"
+        android:apiKey="AIzaSyDBxfDFRnc60957jw-UiEoCjEOVUotsH24" /> Map view -->
+
+    <!-- <FrameLayout
+        android:id="@+id/friend_map_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_bar"/> -->
+
+    <!-- Map view to display friend map-->
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/friend_map_view_container"
+        android:layout_below="@id/top_bar"
+        android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+
+
+</RelativeLayout>

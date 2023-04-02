@@ -79,6 +79,9 @@
         <action
             android:id="@+id/action_social_to_congestion"
             app:destination="@id/congestion" />
+        <action
+            android:id="@+id/action_social_to_friendMapFragment"
+            app:destination="@id/friendMapFragment" />
     </fragment>
     <!-- MainActivity activity -->
     <activity
@@ -156,4 +159,12 @@
         android:name="com.example.drinkmate.CongestionMap"
         android:label="fragment_congestion_map"
         tools:layout="@layout/fragment_congestion_map" />
+    <fragment
+        android:id="@+id/friendMapFragment"
+        android:name="com.example.drinkmate.FriendMapFragment"
+        android:label="FriendMapFragment" >
+        <action
+            android:id="@+id/action_friendMapFragment_to_social"
+            app:destination="@id/social" />
+    </fragment>
 </navigation>

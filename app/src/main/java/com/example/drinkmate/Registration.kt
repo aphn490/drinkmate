@@ -92,7 +92,8 @@ class Registration : AppCompatActivity() {
                                         UID = firebaseUser?.uid ?: "",
                                         deviceToken = userDevice,
                                         userName = un,
-                                        email = em
+                                        email = em,
+                                        is_user_location_tracking = true
                                     )
                                     val db = FirestoreUtil.getFirestore()
 
