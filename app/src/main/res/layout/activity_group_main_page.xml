@@ -53,7 +53,7 @@
 
         <LinearLayout
             android:layout_width="200dp"
-            android:layout_height="443dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
@@ -71,7 +71,7 @@
 
         <LinearLayout
             android:layout_width="200dp"
-            android:layout_height="443dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView

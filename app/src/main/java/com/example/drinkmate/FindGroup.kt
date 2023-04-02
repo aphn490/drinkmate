@@ -34,6 +34,8 @@ class FindGroup : AppCompatActivity() {
         myGroupAdapter.setOnItemClickListener(object : GroupAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
                 val intent = Intent(this@FindGroup, GroupMainPage::class.java)
+                intent.putExtra("Description", groupArrayList[position].Description)
+                intent.putExtra("Name", groupArrayList[position].GroupName)
                 startActivity(intent)
             }
         })

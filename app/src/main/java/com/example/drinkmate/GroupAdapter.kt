@@ -26,8 +26,8 @@ class GroupAdapter (private val groupList : ArrayList<GroupForRecycler>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = groupList[position]
-        holder.groupName.text = currentItem.groupName
-        holder.numUsers.text = currentItem.numberOfMembers.toString()
+        holder.groupName.text = currentItem.GroupName
+        holder.numUsers.text = currentItem.numberOfMembers
     }
 
     override fun getItemCount(): Int {

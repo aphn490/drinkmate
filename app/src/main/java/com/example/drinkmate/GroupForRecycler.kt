@@ -1,3 +1,3 @@
 package com.example.drinkmate
 
-data class GroupForRecycler (var groupName : String ?= null, var groupDesc : String ?=null, var numberOfMembers : Int ?=null)
+data class GroupForRecycler (var GroupName : String ?= null, var Description : String ?=null, var numberOfMembers : String ?=null, var image : String ?=null)
