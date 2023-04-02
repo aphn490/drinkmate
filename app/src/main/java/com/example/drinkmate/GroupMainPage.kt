@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.view.get
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
@@ -46,6 +47,10 @@ class GroupMainPage : AppCompatActivity() {
         // Initialize both recycler views and set on click listeners
         allGroupMembers = findViewById(R.id.AllGroupMembers)
         friendsInGroup = findViewById(R.id.MutualFriends)
+        allGroupMembers.layoutManager = LinearLayoutManager(this)
+        friendsInGroup.layoutManager = LinearLayoutManager(this)
+        allGroupMembers.setHasFixedSize(true)
+        friendsInGroup.setHasFixedSize(true)
         memberArrayList = arrayListOf()
         friendsArrayList = arrayListOf()
         myUserAdapter1 = UserAdapter(memberArrayList)
@@ -77,7 +82,7 @@ class GroupMainPage : AppCompatActivity() {
             }
         })
 
-        //eventChangeListener()
+        eventChangeListener()
 
         interactButton.setOnClickListener{
             if (CURRENT_STATE == "not_a_member"){
