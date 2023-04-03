@@ -36,6 +36,7 @@ class FindGroup : AppCompatActivity() {
                 val intent = Intent(this@FindGroup, GroupMainPage::class.java)
                 intent.putExtra("Description", groupArrayList[position].Description)
                 intent.putExtra("Name", groupArrayList[position].GroupName)
+                intent.putExtra("imgsrc", groupArrayList[position].image)
                 startActivity(intent)
             }
         })
