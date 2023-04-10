@@ -12,15 +12,12 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.Navigation
 import kotlinx.coroutines.*
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RecipeView.newInstance] factory method to
- * create an instance of this fragment.
- */
+// A Recipe View fragment that will handle with displaying detailed information on a recipe
 class RecipeView : Fragment() {
     private var arr: HashMap<String, *>? = null
     private var details: MutableList<String> = arrayListOf()
 
+    // Function to set the image based on the main ingredient chosen
     fun changeImage(iv : ImageView, st : String) {
         if (st == "Whiskey") {
             iv.setImageResource(R.drawable.whiskey)
@@ -48,12 +45,12 @@ class RecipeView : Fragment() {
         val job = Job()
         val uiScope = CoroutineScope(Dispatchers.Main + job)
         // The setFragmentResultListener will retrieve data that was sent to it with the attached
-        // key, it will retrieve the arraylist from Congestion
+        // key, it will retrieve the arraylist from Recipe
         setFragmentResultListener("recipeKey") { key, bundle ->
             uiScope.launch(Dispatchers.IO) {
                 // Assigns arr variable to the ArrayList that is retrieved
                 arr = bundle.get("list") as HashMap<String, *>?
-                // Assigns variables to the data in the HashMap and then adds the values to the latlong array list
+                // Assigns variables to the data in the HashMap and then adds the values to the details array list
                 val name: String = arr?.get("name") as String
                 val mainIngredient: String = arr?.get("mainIngredient") as String
                 var ingredients: String = arr?.get("ingredients") as String
@@ -68,6 +65,8 @@ class RecipeView : Fragment() {
                     for (x in details) {
                         System.out.println(x)
                     }
+                    // Sets the text boxes to each of the index of the details, which includes name, mainIngredient
+                    // ingredients, steps
                     view?.findViewById<TextView>(R.id.viewRecipeName)?.text = details[0]
                     view?.findViewById<TextView>(R.id.mainAlc)?.text = details[1]
                     view?.findViewById<TextView>(R.id.viewIngredients)?.text = details[2]

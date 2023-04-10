@@ -51,7 +51,7 @@ class More : Fragment() {
         }
 
         val shopButton : TextView = view.findViewById(R.id.shoppingDescription)
-        chatButton.setOnClickListener() {
+        shopButton.setOnClickListener() {
             // Navigates the fragment to the chat fragment
             navController.navigate(R.id.action_more_to_shopping)
         }

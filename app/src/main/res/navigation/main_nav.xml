@@ -207,5 +207,14 @@
         android:id="@+id/shopping"
         android:name="com.example.drinkmate.Shopping"
         android:label="fragment_shopping"
-        tools:layout="@layout/fragment_shopping" />
+        tools:layout="@layout/fragment_shopping" >
+        <action
+            android:id="@+id/action_shopping_to_shoppingCreation"
+            app:destination="@id/shoppingCreation" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingCreation"
+        android:name="com.example.drinkmate.ShoppingCreation"
+        android:label="fragment_shopping_creation"
+        tools:layout="@layout/fragment_shopping_creation" />
 </navigation>

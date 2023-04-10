@@ -1,7 +1,6 @@
 package com.example.drinkmate
 
 import android.content.ContentValues
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,17 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RecipeCreation.newInstance] factory method to
- * create an instance of this fragment.
- */
+// A Recipe Creation fragment that handles the creation of recipes based on user input
 class RecipeCreation : Fragment() {
     private val db = Firebase.firestore
     private var currentuid = FirebaseAuth.getInstance().currentUser?.uid
@@ -40,7 +34,8 @@ class RecipeCreation : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+
+        // Initializes all the variables and views
         val button = view.findViewById<Button>(R.id.recipeCreate)
         val name = view.findViewById<EditText>(R.id.recipeName)
         val ingredients = view.findViewById<EditText>(R.id.ingredientsList)
@@ -52,33 +47,41 @@ class RecipeCreation : Fragment() {
         val removeIngred = view.findViewById<Button>(R.id.removeIngredients)
         val removeStep = view.findViewById<Button>(R.id.removeSteps)
 
+        // Initializes the strings of both ingredients and steps
         var ingredientsString = ""
         var stepsString = ""
 
+        // Populates the spinner with the pre-made array of alcoholic drinks
         if (spinner != null) {
             // Sets the spinner's values to the previously created values.
             val arrayAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_dropdown_item, mainIngredientOptions)
             spinner.adapter = arrayAdapter
             }
 
+        // Sets an click listener to the add ingredient button
         addIngredButton.setOnClickListener() {
             if (ingredients.text.toString() != "") {
+                // Adds the ingredient to a list of ingredients and makes a toast
                 allIngredients.add(ingredients.text.toString())
                 Toast.makeText(requireContext(), "Added " + ingredients.text.toString() + " to Ingredients.", Toast.LENGTH_SHORT).show()
                 ingredients.setText("")
             }
         }
 
+        // Sets an click listener to the add step button
         addStepButton.setOnClickListener() {
             if (steps.text.toString() != "") {
+                // Adds the step to a list of steps and makes a toast
                 allSteps.add(steps.text.toString())
                 Toast.makeText(requireContext(), "Added " + steps.text.toString() + " to Steps.", Toast.LENGTH_SHORT).show()
                 steps.setText("")
             }
         }
 
+        // Sets an click listener to the remove ingredient button
         removeIngred.setOnClickListener() {
             if(allIngredients.isNotEmpty()) {
+                // Removes the ingredient at last index - 1
                 Toast.makeText(requireContext(), "Removed " + allIngredients.get(allIngredients.size - 1) + " from Ingredients.", Toast.LENGTH_SHORT).show()
                 allIngredients.removeAt(allIngredients.size - 1)
             } else {
@@ -86,23 +89,28 @@ class RecipeCreation : Fragment() {
             }
         }
 
+        // Sets an click listener to the remove step button
         removeStep.setOnClickListener() {
             if(allSteps.isNotEmpty()) {
+                // Removes the ingredient at last index - 1
                 Toast.makeText(requireContext(), "Removed " + allSteps.get(allSteps.size - 1) + " from steps.", Toast.LENGTH_SHORT).show()
                 allSteps.removeAt(allSteps.size - 1)
             } else {
                 Toast.makeText(requireContext(), "No Steps Added Yet.", Toast.LENGTH_SHORT).show()
             }
         }
+        // Sets a click listener to the create recipe button
         button?.setOnClickListener() {
             ingredientsString = ""
             stepsString = ""
+            // Adds each ingredient and steps to the string
             for (x in allIngredients) {
                 ingredientsString += "$x |"
             }
             for (x in allSteps) {
                 stepsString += "$x |"
             }
+            // Sets a hash map to the values of the necessary information
             if (name.text.toString()!="" && allIngredients.isNotEmpty() && allSteps.isNotEmpty()) {
                 val rec = hashMapOf (
                     "name" to name.text.toString(),
@@ -110,11 +118,6 @@ class RecipeCreation : Fragment() {
                     "ingredients" to ingredientsString,
                     "steps" to stepsString
                 )
-                System.out.println("TESTING HERE")
-                System.out.println(name.text.toString())
-                System.out.println(spinner.selectedItem.toString())
-                System.out.println(ingredients.text.toString())
-                System.out.println(steps.text.toString())
                 // Brings up the document under the Recipes collection that has the user's id from firebase
                 val recipeRef = db.collection("Recipes").document(currentuid.toString())
                 recipeRef.get().addOnCompleteListener {
