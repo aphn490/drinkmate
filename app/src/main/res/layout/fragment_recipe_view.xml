@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecipeView">
+
+    <!-- Vertical layout that holds all the layouts -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Recipe View title -->
+        <TextView
+            android:id="@+id/viewRecipeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Viewing Recipe"
+            android:textSize="32dp" />
+
+        <!-- Horizontal layout that holds recipe image and name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="99dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/viewRecipeImage"
+                android:layout_width="182dp"
+                android:layout_height="99dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_baseline_local_bar_24" />
+
+            <TextView
+                android:id="@+id/viewRecipeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:minHeight="48dp"
+                android:text="Name" />
+        </LinearLayout>
+
+        <!-- Ingredients subtitle -->
+        <TextView
+            android:id="@+id/viewIngredientsDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="28dp"
+            android:text="Ingredients" />
+
+        <!-- Horizontal layout that holds the main alcohol ingredient and the name of it -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/mainAlcDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Featured Main Alcohol: " />
+
+            <TextView
+                android:id="@+id/mainAlc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+        </LinearLayout>
+
+        <!-- All the ingredients the user had submitted -->
+        <TextView
+            android:id="@+id/viewIngredients"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:textSize="24dp"
+            android:ems="10" />
+
+        <!-- Steps sub-title -->
+        <TextView
+            android:id="@+id/viewStepsDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="28dp"
+            android:text="Steps" />
+
+        <!-- All the steps the user had submitted -->
+        <TextView
+            android:id="@+id/viewSteps"
+            android:layout_width="match_parent"
+            android:layout_height="225dp"
+            android:textSize="24dp"
+            android:ems="10" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/viewReturn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Return to list" />
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Shopping">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shopping Cart"
+            android:gravity="center"
+            android:textSize="32dp"/>
+
+        <TextView
+            android:id="@+id/cart1"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:text="" />
+        <TextView
+            android:id="@+id/cart2"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:text="" />
+        <TextView
+            android:id="@+id/cart3"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:text="" />
+        <TextView
+            android:id="@+id/cart4"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:text="" />
+        <TextView
+            android:id="@+id/cart5"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:text="" />
+
+        <Button
+            android:id="@+id/createShopping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create New Shopping Cart"
+            android:layout_gravity = "center"/>
+
+    </LinearLayout>
+
+</FrameLayout>
