@@ -187,6 +187,7 @@
             android:id="@+id/action_friendMapFragment_to_social"
             app:destination="@id/social" />
     </fragment>
+    <fragment
         android:id="@+id/recipe"
         android:name="com.example.drinkmate.Recipe"
         android:label="fragment_recipe"
