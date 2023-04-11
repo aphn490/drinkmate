@@ -3,14 +3,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Drinks">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Drinks Fragment"
-        android:textSize="30dp"
-        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp"
+            android:gravity="center"
+            android:text="Drinks and Recipes" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/searchDrinksLayout">
+
+            <ImageView
+                android:id="@+id/searchImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/searchimage" />
+
+            <TextView
+                android:id="@+id/searchDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Search for drinks"
+                android:textSize="30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/recipeViewLayout">
+
+            <ImageView
+                android:id="@+id/recipeViewIcon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_baseline_local_drink_24" />
+
+            <TextView
+                android:id="@+id/recipeViewIconDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="30dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="View All Recipes" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/recipeCreationLayout">
+
+            <ImageView
+                android:id="@+id/recipeCreationIcon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/writing" />
+
+            <TextView
+                android:id="@+id/recipeCreationIconDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="30dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="Create Your Own Recipe" />
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

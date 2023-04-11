@@ -8,10 +8,11 @@
 
     <!-- Linear layout to hold the textview and other linear layout-->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:gravity="center">
 
         <!-- TextView that tells the user what the popup window is talking about-->
         <TextView
@@ -27,31 +28,35 @@
 
         <!-- Horizontal Linear layout to hold the buttons-->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center">
 
             <!-- Button that confirms deletion  -->
             <Button
                 android:id="@+id/confirmYes"
-                android:layout_width="80dp"
+                android:layout_width="0dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="5dp"
                 android:background="@color/red"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1"
                 android:text="Yes" />
+
+            <Space
+                android:layout_width="24dp"
+                android:layout_height="match_parent" />
 
             <!-- Button that puts the user out of the popup window  -->
             <Button
                 android:id="@+id/confirmNo"
-                android:layout_width="80dp"
+                android:layout_width="0dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="58dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="4dp"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:background="@color/MainColor"
+                android:layout_weight="1"
                 android:text="No" />
         </LinearLayout>
     </LinearLayout>
