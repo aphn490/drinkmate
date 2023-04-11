@@ -29,4 +29,12 @@
         android:layout_marginBottom="100dp"
         android:text="Friends " />
 
+    <Button
+        android:id="@+id/button_toFriendMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="-50dp"
+        android:text="Friend Map" />
+
 </FrameLayout>

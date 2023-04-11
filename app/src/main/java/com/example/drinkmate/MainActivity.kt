@@ -2,13 +2,20 @@ package com.example.drinkmate
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.content.Context
+import com.google.android.gms.location.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+
 
 
 // Main Activity that will be house multiple fragments and functions
@@ -28,6 +35,13 @@ class MainActivity : AppCompatActivity() {
             val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(chan1)
         }
+
+        println("MAIN START ============================================================")
+        //startLocationService()
+        val locationUpdateHandler = LocationUpdateHandler(applicationContext, FirebaseAuth.getInstance().currentUser?.uid ?: "")
+
+        // Start receiving location updates
+        locationUpdateHandler.startLocationUpdates()
 
         setContentView(R.layout.activity_main)
 

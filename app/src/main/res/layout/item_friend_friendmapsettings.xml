@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout for individual friend cards for the friend selection in friend map settings -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/friend_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="20dp"
+    android:clickable="false"
+    android:focusable="false"
+    android:focusableInTouchMode="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="?android:selectableItemBackground"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
+
+        <!-- Friend Profile Picture -->
+        <ImageView
+            android:id="@+id/friendmapcard_profile_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/ic_baseline_person_16"
+            android:layout_centerVertical="true" />
+
+        <!-- Friend Username -->
+        <TextView
+            android:id="@+id/friendmapcard_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingStart="16dp"
+            android:text="Name"
+            android:layout_centerVertical="true" />
+
+        <!-- Checkbox to indicate if friend is selected -->
+        <CheckBox
+            android:id="@+id/friendmapcard_checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_weight="0.1"
+            android:checked="true"
+            android:clickable="false"
+            />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
