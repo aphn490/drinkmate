@@ -51,16 +51,4 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         navView.setupWithNavController(navController)
     }
-
-    /*
-    private fun startLocationService() {
-        val intent = Intent(this, LocationService::class.java)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(intent)
-        } else {
-            startService(intent)
-        }
-    }
-
-     */
 }

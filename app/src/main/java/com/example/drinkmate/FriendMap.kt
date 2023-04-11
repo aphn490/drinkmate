@@ -388,7 +388,7 @@ class FriendMapFragment : Fragment(), OnMapReadyCallback {
         override fun run() {
             mMap.clear()
             updateFriendMarkers()
-            handler.postDelayed(this, 5000)
+            handler.postDelayed(this, 10000)
         }
     }
 
