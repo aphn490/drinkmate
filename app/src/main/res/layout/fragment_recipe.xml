@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Recipe">
+
+    <!-- Vertical Layout that holds all the layouts -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Recipes Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="32dp"
+            android:text="Recipes" />
+
+        <!-- Horizontal Layout that holds all the yours and search buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+
+            <!-- Your recipes button -->
+            <Button
+                android:id="@+id/yourRecipes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yours" />
+
+
+            <!-- Search recipes button -->
+            <Button
+                android:id="@+id/searchRecipes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Search" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!-- Horizontal layout that holds recipe 1 and its name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:id="@+id/recipe1layout">
+
+            <ImageView
+                android:id="@+id/recipe1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_baseline_local_bar_24" />
+
+            <TextView
+                android:id="@+id/recipe1name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="TextView" />
+        </LinearLayout>
+
+        <!-- Horizontal layout that holds recipe 2 and its name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:id="@+id/recipe2layout">
+
+            <ImageView
+                android:id="@+id/recipe2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_baseline_local_bar_24" />
+
+            <TextView
+                android:id="@+id/recipe2name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="TextView" />
+        </LinearLayout>
+
+        <!-- Horizontal layout that holds recipe 3 and its name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:id="@+id/recipe3layout">
+
+            <ImageView
+                android:id="@+id/recipe3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_baseline_local_bar_24" />
+
+            <TextView
+                android:id="@+id/recipe3name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="TextView" />
+        </LinearLayout>
+
+        <!-- Horizontal layout that holds recipe 4 and its name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:id="@+id/recipe4layout">
+
+            <ImageView
+                android:id="@+id/recipe4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_baseline_local_bar_24" />
+
+            <TextView
+                android:id="@+id/recipe4name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="TextView" />
+        </LinearLayout>
+
+        <!-- Horizontal layout that holds recipe 5 and its name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:id="@+id/recipe5layout">
+
+            <ImageView
+                android:id="@+id/recipe5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_baseline_local_bar_24" />
+
+            <TextView
+                android:id="@+id/recipe5name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="TextView" />
+        </LinearLayout>
+
+        <!-- Horizontal layout that holds previous and next page buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/prevRecipes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Previous Page" />
+
+            <Button
+                android:id="@+id/nextRecipes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Next Page" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

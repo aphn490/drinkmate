@@ -26,13 +26,16 @@
         <!-- Action to transition from more fragment to congestion fragment -->
         <action
             android:id="@+id/action_more_to_game"
-            app:destination="@id/game" />
+            app:destination="@id/games" />
         <action
             android:id="@+id/action_more_to_games"
             app:destination="@id/games" />
         <action
             android:id="@+id/action_more_to_chat"
             app:destination="@+id/chat"/>
+        <action
+            android:id="@+id/action_more_to_shopping"
+            app:destination="@id/shopping" />
 
     </fragment>
     <!-- Calculator Fragment -->
@@ -57,7 +60,24 @@
         android:id="@+id/drinks"
         android:name="com.example.drinkmate.Drinks"
         android:label="fragment_drinks"
-        tools:layout="@layout/fragment_drinks" />
+        tools:layout="@layout/fragment_drinks" >
+        <action
+            android:id="@+id/action_drinks_to_recipe"
+            app:destination="@id/recipe" />
+        <action
+            android:id="@+id/action_drinks_to_recipeCreation"
+            app:destination="@id/recipeCreation" />
+        <action
+            android:id="@+id/action_drinks_to_drinkSearch"
+            app:destination="@id/drinkSearch" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/drinkSearch"
+        android:name="com.example.drinkmate.DrinkSearch"
+        android:label="fragment_drinkSearch"
+        tools:layout="@layout/fragment_drink_search">
+    </fragment>
     <!-- Scan Fragment -->
     <fragment
         android:id="@+id/scan"
@@ -79,9 +99,6 @@
         <action
             android:id="@+id/action_social_to_congestion"
             app:destination="@id/congestion" />
-        <action
-            android:id="@+id/action_social_to_friendMapFragment"
-            app:destination="@id/friendMapFragment" />
     </fragment>
     <!-- MainActivity activity -->
     <activity
@@ -160,11 +177,44 @@
         android:label="fragment_congestion_map"
         tools:layout="@layout/fragment_congestion_map" />
     <fragment
-        android:id="@+id/friendMapFragment"
-        android:name="com.example.drinkmate.FriendMapFragment"
-        android:label="FriendMapFragment" >
+        android:id="@+id/recipe"
+        android:name="com.example.drinkmate.Recipe"
+        android:label="fragment_recipe"
+        tools:layout="@layout/fragment_recipe" >
         <action
-            android:id="@+id/action_friendMapFragment_to_social"
-            app:destination="@id/social" />
+            android:id="@+id/action_recipe_to_recipeView"
+            app:destination="@id/recipeView" />
     </fragment>
+    <fragment
+        android:id="@+id/recipeCreation"
+        android:name="com.example.drinkmate.RecipeCreation"
+        android:label="fragment_recipe_creation"
+        tools:layout="@layout/fragment_recipe_creation" >
+        <action
+            android:id="@+id/action_recipeCreation_to_recipe"
+            app:destination="@id/recipe" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeView"
+        android:name="com.example.drinkmate.RecipeView"
+        android:label="fragment_recipe_view"
+        tools:layout="@layout/fragment_recipe_view" >
+        <action
+            android:id="@+id/action_recipeView_to_recipe"
+            app:destination="@id/recipe" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopping"
+        android:name="com.example.drinkmate.Shopping"
+        android:label="fragment_shopping"
+        tools:layout="@layout/fragment_shopping" >
+        <action
+            android:id="@+id/action_shopping_to_shoppingCreation"
+            app:destination="@id/shoppingCreation" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingCreation"
+        android:name="com.example.drinkmate.ShoppingCreation"
+        android:label="fragment_shopping_creation"
+        tools:layout="@layout/fragment_shopping_creation" />
 </navigation>
