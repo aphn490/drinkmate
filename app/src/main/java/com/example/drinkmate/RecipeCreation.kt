@@ -116,7 +116,9 @@ class RecipeCreation : Fragment() {
                     "name" to name.text.toString(),
                     "mainIngredient" to spinner.selectedItem.toString(),
                     "ingredients" to ingredientsString,
-                    "steps" to stepsString
+                    "steps" to stepsString,
+                    "notes" to "",
+                    "creator" to currentuid.toString()
                 )
                 // Brings up the document under the Recipes collection that has the user's id from firebase
                 val recipeRef = db.collection("Recipes").document(currentuid.toString())

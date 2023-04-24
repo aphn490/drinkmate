@@ -222,10 +222,18 @@
         <action
             android:id="@+id/action_shopping_to_shoppingCreation"
             app:destination="@id/shoppingCreation" />
+        <action
+            android:id="@+id/action_shopping_to_shoppingView"
+            app:destination="@id/shoppingView" />
     </fragment>
     <fragment
         android:id="@+id/shoppingCreation"
         android:name="com.example.drinkmate.ShoppingCreation"
         android:label="fragment_shopping_creation"
         tools:layout="@layout/fragment_shopping_creation" />
+    <fragment
+        android:id="@+id/shoppingView"
+        android:name="com.example.drinkmate.ShoppingView"
+        android:label="fragment_shopping_view"
+        tools:layout="@layout/fragment_shopping_view" />
 </navigation>

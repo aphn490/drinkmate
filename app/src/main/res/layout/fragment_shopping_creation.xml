@@ -11,12 +11,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
+        <EditText
+            android:id="@+id/cartName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Creating Shopping Cart"
             android:gravity="center"
-            android:textSize="32dp"/>
+            android:hint="Input Shopping Cart Name"
+            android:textSize="32dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -25,9 +26,9 @@
         <TextView
             android:id="@+id/textView20"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:textSize="24dp"
-            android:text="Current Shopping Cart:" />
+            android:layout_height="350dp"
+            android:text="Current Shopping Cart:"
+            android:textSize="24dp" />
 
         <Space
             android:layout_width="match_parent"
