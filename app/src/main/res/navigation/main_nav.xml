@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_more_to_shopping"
             app:destination="@id/shopping" />
+        <action
+            android:id="@+id/action_more_to_stats"
+            app:destination="@id/stats" />
 
     </fragment>
     <!-- Calculator Fragment -->
@@ -236,4 +239,12 @@
         android:name="com.example.drinkmate.ShoppingView"
         android:label="fragment_shopping_view"
         tools:layout="@layout/fragment_shopping_view" />
+    <fragment
+        android:id="@+id/stats"
+        android:name="com.example.drinkmate.Stats"
+        android:label="Stats" >
+        <action
+            android:id="@+id/action_stats_to_more"
+            app:destination="@id/more" />
+    </fragment>
 </navigation>

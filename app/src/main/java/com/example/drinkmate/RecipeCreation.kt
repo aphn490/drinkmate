@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -122,6 +124,11 @@ class RecipeCreation : Fragment() {
                 )
                 // Brings up the document under the Recipes collection that has the user's id from firebase
                 val recipeRef = db.collection("Recipes").document(currentuid.toString())
+
+                val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+                val userDocumentRef = FirebaseFirestore.getInstance().collection("UserAccounts").document(currentUserID ?: "")
+                userDocumentRef?.update("num_recipes_made", FieldValue.increment(1))
+
                 recipeRef.get().addOnCompleteListener {
                         task ->
                     //Once the task is completed, it'll undergo the following code
