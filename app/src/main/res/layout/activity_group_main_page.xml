@@ -50,6 +50,13 @@
             android:layout_gravity="center"
             />
 
+        <Button
+            android:id="@+id/ViewEvents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Events"
+            android:layout_gravity="center"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -90,7 +97,9 @@
                     tools:listitem="@layout/all_users_display_layout" />
             </LinearLayout>
 
+
         </LinearLayout>
+
 
     </LinearLayout>
 

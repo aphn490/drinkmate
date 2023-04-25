@@ -9,6 +9,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -40,6 +41,7 @@ class GroupMainPage : AppCompatActivity() {
     private lateinit var CURRENT_STATE : String
     private lateinit var myUserAdapter1: UserAdapter
     private lateinit var myUserAdapter2: UserAdapter
+    private lateinit var viewEventButton: Button
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +52,7 @@ class GroupMainPage : AppCompatActivity() {
         val viewGroupDesc : TextView = findViewById(R.id.GroupDesc)
         val imageView : ImageView = findViewById(R.id.GroupIcon)
         interactButton = findViewById(R.id.InteractButton)
+        viewEventButton = findViewById(R.id.ViewEvents)
         val bundle : Bundle?= intent.extras
         viewGroupName.text = bundle!!.getString("Name")
         viewGroupDesc.text = bundle!!.getString("Description")
@@ -111,6 +114,12 @@ class GroupMainPage : AppCompatActivity() {
             }
         }
 
+        viewEventButton.setOnClickListener{
+            val intent = Intent(this@GroupMainPage,GroupEventsPage::class.java)
+            intent.putExtra("GroupName", viewGroupName.text)
+            startActivity(intent)
+        }
+
         MaintainButton()
 
 
@@ -132,10 +141,14 @@ class GroupMainPage : AppCompatActivity() {
                 CURRENT_STATE = "member"
                 interactButton.text = "Leave Group"
                 interactButton.setBackgroundColor(Color.RED)
+                viewEventButton.visibility = View.VISIBLE
+                viewEventButton.isEnabled = true
             } else {
                 CURRENT_STATE = "not_a_member"
                 interactButton.text = "Join"
                 interactButton.setBackgroundColor(Color.GREEN)
+                viewEventButton.visibility = View.INVISIBLE
+                viewEventButton.isEnabled = false
             }
         }
 
@@ -177,6 +190,8 @@ class GroupMainPage : AppCompatActivity() {
                             CURRENT_STATE = "member"
                             interactButton.text = "Leave Group"
                             interactButton.setBackgroundColor(Color.RED)
+                            viewEventButton.visibility = View.VISIBLE
+                            viewEventButton.isEnabled = true
                         }
                     }
             }
@@ -198,6 +213,8 @@ class GroupMainPage : AppCompatActivity() {
         CURRENT_STATE = "not_a_member"
         interactButton.text = "Join"
         interactButton.setBackgroundColor(Color.GREEN)
+        viewEventButton.visibility = View.INVISIBLE
+        viewEventButton.isEnabled = false
     }
 
     /**
