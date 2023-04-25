@@ -60,78 +60,7 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         navView.setupWithNavController(navController)
 
-        //Temp code to furnish existing UserAccount documents with required fields
-        val collectionRef = FirebaseFirestore.getInstance().collection("UserAccounts")
 
-        //val joinDate = Timestamp.now()
-
-        collectionRef.get()
-            .addOnSuccessListener { documents ->
-                // Iterate through all documents and update the field
-                for (document in documents) {
-                    document.reference.update("active_time", 0)
-                }
-            }
-
-        /*
-        val joinDate = Timestamp.now()
-
-        collectionRef.get()
-            .addOnSuccessListener { documents ->
-                // Iterate through all documents and update the field
-                for (document in documents) {
-                    document.reference.update("join_date", joinDate)
-                }
-            }
-
-        collectionRef.get()
-            .addOnSuccessListener { documents ->
-                // Iterate through all documents and update the field
-                for (document in documents) {
-                    document.reference.update("num_recipes_made", 0)
-                }
-            }
-
-        collectionRef.get()
-            .addOnSuccessListener { documents ->
-                // Iterate through all documents and update the field
-                for (document in documents) {
-                    document.reference.update("num_recipes_viewed", 0)
-                }
-            }
-
-        collectionRef.get()
-            .addOnSuccessListener { documents ->
-                // Iterate through all documents and update the field
-                for (document in documents) {
-                    document.reference.update("num_recipes_rated", 0)
-                }
-            }
-
-        collectionRef.get()
-            .addOnSuccessListener { documents ->
-                // Iterate through all documents and update the field
-                for (document in documents) {
-                    document.reference.update("num_barcodes_scanned", 0)
-                }
-            }
-
-        collectionRef.get()
-            .addOnSuccessListener { documents ->
-                // Iterate through all documents and update the field
-                for (document in documents) {
-                    document.reference.update("num_bars_visited", 0)
-                }
-            }
-
-        collectionRef.get()
-            .addOnSuccessListener { documents ->
-                // Iterate through all documents and update the field
-                for (document in documents) {
-                    document.reference.update("games_played", 0)
-                }
-            }
-         */
 
         startTime = System.currentTimeMillis()
 
@@ -144,42 +73,6 @@ class MainActivity : AppCompatActivity() {
         // Get the user's document reference
         userDocumentRef = firestore.collection("UserAccounts").document(currentUserID ?: "")
 
-        /*
-        // Start the activity timer to track active screen time
-        timer = object : CountDownTimer(Long.MAX_VALUE, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                val activityTime = (System.currentTimeMillis() - startTime) / 1000
-                //userDocumentRef?.update("active_time", activityTime)
-                userDocumentRef?.update("active_time", FieldValue.increment(activityTime))
-            }
-
-            override fun onFinish() {}
-        }.start()
-
-         */
-
-        /*
-        val user = FirebaseAuth.getInstance().currentUser
-        val userId = user?.uid ?: return // Return if the user is not authenticated
-        val db = Firebase.firestore
-        val userDocRef = db.collection("UserAccounts").document(userId)
-
-        val handler = Handler(Looper.getMainLooper())
-        val task = object : Runnable {
-            override fun run() {
-                val elapsedTimeHours = (SystemClock.elapsedRealtime() - startTime) / (1000 * 60 * 60) // Convert milliseconds to hours
-                userDocRef.update("membership_length", FieldValue.increment(elapsedTimeHours))
-                    .addOnSuccessListener {
-                        Log.d("MyApp", "Membership length updated successfully")
-                    }
-                    .addOnFailureListener { e ->
-                        Log.e("MyApp", "Error updating membership length", e)
-                    }
-                handler.postDelayed(this, 5000)
-            }
-        }
-        handler.postDelayed(task, 5000)
-         */
     }
 
     //Override onResume to reset start time to current time
