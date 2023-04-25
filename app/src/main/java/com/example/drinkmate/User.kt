@@ -10,7 +10,7 @@ data class User(
     val profileImageUrl: String = "",
     val is_user_location_tracking: Boolean = true,
     val join_date: Timestamp? = null,
-    val membership_length: Int? = null,
+    val active_time: Int? = null,
     val num_recipes_made: Int? = null,
     val num_recipes_viewed: Int? = null,
     val num_recipes_rated: Int? = null,

@@ -98,7 +98,7 @@ class Registration : AppCompatActivity() {
                                         email = em,
                                         is_user_location_tracking = true,
                                         join_date = joinDate,
-                                        membership_length = 0,
+                                        active_time = 0,
                                         num_recipes_made = 0,
                                         num_recipes_viewed = 0,
                                         num_recipes_rated = 0,

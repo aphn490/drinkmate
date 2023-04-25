@@ -63,6 +63,16 @@ class MainActivity : AppCompatActivity() {
         //Temp code to furnish existing UserAccount documents with required fields
         val collectionRef = FirebaseFirestore.getInstance().collection("UserAccounts")
 
+        //val joinDate = Timestamp.now()
+
+        collectionRef.get()
+            .addOnSuccessListener { documents ->
+                // Iterate through all documents and update the field
+                for (document in documents) {
+                    document.reference.update("active_time", 0)
+                }
+            }
+
         /*
         val joinDate = Timestamp.now()
 
