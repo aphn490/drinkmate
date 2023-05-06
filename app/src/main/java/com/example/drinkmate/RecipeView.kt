@@ -59,6 +59,7 @@ class RecipeView : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
         val returnButton = view.findViewById<Button>(R.id.viewReturn)
+        val rateButton = view.findViewById<Button>(R.id.rateButton)
         // Initialization of a job and coroutine in order to make sure a job is completed first before
         // going into code that needs the result
         val job = Job()
@@ -78,6 +79,7 @@ class RecipeView : Fragment() {
         val notesInput = view.findViewById<EditText>(R.id.notesList)
         var allNotesString = ""
         var email = ""
+
 
         db.collection("UserAccounts").document(uid).get()
             .addOnSuccessListener {
@@ -186,6 +188,9 @@ class RecipeView : Fragment() {
                     }
                 }
             }
+        }
+        rateButton.setOnClickListener(){
+            navController.navigate(R.id.action_recipeView_to_rateRecipe)
         }
         returnButton.setOnClickListener() {
             activity?.onBackPressed()

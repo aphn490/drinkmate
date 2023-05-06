@@ -212,7 +212,7 @@
         tools:layout="@layout/fragment_recipe_creation" >
         <action
             android:id="@+id/action_recipeCreation_to_recipe"
-            app:destination="@id/recipe" />
+            app:destination="@id/rateRecipe" />
     </fragment>
     <fragment
         android:id="@+id/recipeView"
@@ -222,6 +222,9 @@
         <action
             android:id="@+id/action_recipeView_to_recipe"
             app:destination="@id/recipe" />
+        <action
+            android:id="@+id/action_recipeView_to_rateRecipe"
+            app:destination="@id/rateRecipe" />
     </fragment>
     <fragment
         android:id="@+id/shopping"
@@ -253,4 +256,9 @@
             android:id="@+id/action_stats_to_more"
             app:destination="@id/more" />
     </fragment>
+    <fragment
+        android:id="@+id/rateRecipe"
+        android:name="com.example.drinkmate.RateRecipe"
+        android:label="fragment_rate_recipe"
+        tools:layout="@layout/fragment_rate_recipe" />
 </navigation>
