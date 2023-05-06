@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/beerpong"
+    tools:context=".beerpong">
+
+    <!-- Constraint Layout that will hold all the screen's buttons and TextViews -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--Picture of the game -->
+        <ImageView
+            android:id="@+id/beerpongpic"
+            android:layout_width="600dp"
+            android:layout_height="450dp"
+            android:src="@drawable/beerpong2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--Requirements of the game -->
+        <TextView
+            android:id="@+id/requirements"
+            android:layout_width="350dp"
+            android:layout_height="90dp"
+            android:text="You need multiple cups filled with the alcohol of your choice and a ping pong ball."
+            android:textSize="25dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beerpongpic" />
+        <!--Game Instructions and rules -->
+        <TextView
+            android:id="@+id/instructions"
+            android:layout_width="400dp"
+            android:layout_height="450dp"
+            android:text="First arrange the cups in pyramid formations on opposite ends of the tables
+like the picture above. Next, split everyone up into two teams. Take turns throwing the ping pong ball
+into the cup. If you successfully make it in, your opponent must drink everything inside the cup and take the cup away.
+Whoever gets rid of all of their opponent's cups first wins."
+            android:textSize="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/requirements" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

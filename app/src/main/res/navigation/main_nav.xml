@@ -165,7 +165,20 @@
         android:id="@+id/games"
         android:name="com.example.drinkmate.games"
         android:label="games"
-        tools:layout="@layout/fragment_games" />
+        tools:layout="@layout/fragment_games" >
+        <action
+            android:id="@+id/to_kingscup"
+            app:destination="@id/kingscup" />
+        <action
+            android:id="@+id/to_beerpong"
+            app:destination="@id/beerpong" />
+        <action
+            android:id="@+id/to_neverhaveiever"
+            app:destination="@id/neverhaveiever" />
+        <action
+            android:id="@+id/to_taskmaster"
+            app:destination="@id/taskmaster" />
+    </fragment>
     <fragment
         android:id="@+id/chat"
         android:name="com.example.drinkmate.ChatFragment"
@@ -261,4 +274,25 @@
         android:name="com.example.drinkmate.RateRecipe"
         android:label="fragment_rate_recipe"
         tools:layout="@layout/fragment_rate_recipe" />
+    <fragment
+        android:id="@+id/beerpong"
+        android:name="com.example.drinkmate.beerpong"
+        android:label="fragment_beerpong"
+        tools:layout="@layout/fragment_beerpong" />
+    <fragment
+        android:id="@+id/taskmaster"
+        android:name="com.example.drinkmate.taskmaster"
+        android:label="fragment_taskmaster"
+        tools:layout="@layout/fragment_taskmaster" />
+    <fragment
+        android:id="@+id/neverhaveiever"
+        android:name="com.example.drinkmate.neverhaveiever"
+        android:label="fragment_neverhaveiever"
+        tools:layout="@layout/fragment_neverhaveiever" />
+    <fragment
+        android:id="@+id/kingscup"
+        android:name="com.example.drinkmate.kingscup"
+        android:label="fragment_kingscup"
+        tools:layout="@layout/fragment_kingscup" />
+
 </navigation>
