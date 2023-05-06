@@ -28,21 +28,26 @@ class ShoppingView : Fragment() {
     private val uid = FirebaseAuth.getInstance().uid.toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Coroutine to allow waiting for fetching information
         super.onCreate(savedInstanceState)
         val job = Job()
         val uiScope = CoroutineScope(Dispatchers.Main + job)
+        // Retrieves information from fragment
         setFragmentResultListener("cartKey") { key, bundle ->
             uiScope.launch(Dispatchers.IO) {
+                // Retrieves the name of the document
                 for (x in bundle.keySet()) {
                     cartNumber = x.toString()
                 }
                 arr = bundle.get(cartNumber) as HashMap<String, HashMap<String, *>?>?
                 withContext(Dispatchers.Main) {
+                    // Adds each document map field to array
                     for (x in arr?.keys!!) {
                         shopping?.set(x, arr!![x].toString())
                     }
                     view?.findViewById<TextView>(R.id.viewCartName)?.text = shopping?.get("name").toString()
                     shopping?.remove("name")
+                    // For each shopping key/value pair, it creates a checkbox with the relevant information
                     shopping?.forEach { entry ->
                         val cb = CheckBox(requireContext())
                         cb.text = entry.value + " " + entry.key.toString() + "\n"
@@ -65,6 +70,7 @@ class ShoppingView : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Creates references to buttons and allows for going back to the previous page and deleting it from the database.
         val del = view.findViewById<Button>(R.id.viewCartDelete)
         val fin = view.findViewById<Button>(R.id.viewCartFinish)
         del.setOnClickListener {

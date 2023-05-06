@@ -55,6 +55,7 @@ class ShoppingCreation : Fragment() {
                 currentCart.setText(currentCart.text.toString() + "\n" + amount + " " + item)
             }
         }
+
         saveButton.setOnClickListener() {
             if (cartName.text.toString() != "") {
                 recipeRef.get().addOnCompleteListener {
@@ -63,42 +64,42 @@ class ShoppingCreation : Fragment() {
                     if (task.isSuccessful) {
                         val doc = task.result
                         cart["name"] = cartName.text.toString()
-                        // If cart 1 doesn't exist yet, it will update the document with the bar details under
-                        // the name "carts"
+                        // If cart 1 doesn't exist yet, it will update the document with the cart details under
+                        // the name "carts1"
                         if (doc.get("carts1") == null) {
                             val cartCreated = hashMapOf (
                                 "carts1" to cart
                             )
                             db.collection("ShoppingCarts").document(currentuid.toString()).set(cartCreated, SetOptions.merge())
-                            // If cart 2 doesn't exist yet, it will update the document with the bar details under
-                            // the name "carts"
+                            // If cart 2 doesn't exist yet, it will update the document with the cart details under
+                            // the name "carts2"
                         } else if (doc.get("carts2") == null) {
                             val cartCreated = hashMapOf (
                                 "carts2" to cart
                             )
                             db.collection("ShoppingCarts").document(currentuid.toString()).set(cartCreated, SetOptions.merge())
-                            // If cart 3 doesn't exist yet, it will update the document with the bar details under
-                            // the name "carts"
+                            // If cart 3 doesn't exist yet, it will update the document with the cart details under
+                            // the name "carts3"
                         } else if (doc.get("carts3") == null) {
                             val cartCreated = hashMapOf (
                                 "carts3" to cart
                             )
                             db.collection("ShoppingCarts").document(currentuid.toString()).set(cartCreated, SetOptions.merge())
-                            // If cart 4 doesn't exist yet, it will update the document with the bar details under
-                            // the name "carts"
+                            // If cart 4 doesn't exist yet, it will update the document with the cart details under
+                            // the name "carts4"
                         } else if (doc.get("carts4") == null) {
                             val cartCreated = hashMapOf (
                                 "carts4" to cart
                             )
                             db.collection("ShoppingCarts").document(currentuid.toString()).set(cartCreated, SetOptions.merge())
-                            // If cart 5 doesn't exist yet, it will update the document with the bar details under
-                            // the name "carts"
+                            // If cart 5 doesn't exist yet, it will update the document with the cart details under
+                            // the name "carts5"
                         } else if (doc.get("carts5") == null) {
                             val cartCreated = hashMapOf (
                                 "carts5" to cart
                             )
                             db.collection("ShoppingCarts").document(currentuid.toString()).set(cartCreated, SetOptions.merge())
-                            // If recipe 6 doesn't exist yet, it will update the document with the bar details under
+                            // If recipe 6 doesn't exist yet, it will update the document with the cart details under
                             // the name "recipe6"
                         } else {
                             Toast.makeText(requireContext(), "Max Recipes reached.", Toast.LENGTH_SHORT).show()

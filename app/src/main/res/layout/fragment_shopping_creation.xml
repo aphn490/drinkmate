@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".ShoppingCreation">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -79,19 +78,15 @@
                 android:text="Add to shopping cart" />
 
             <Button
-                android:id="@+id/removeShoppingItem"
+                android:id="@+id/shoppingSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="remove latest item" />
+                android:text="Save Shopping Cart" />
+
         </LinearLayout>
 
-        <Button
-            android:id="@+id/shoppingSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Save Shopping Cart"
-            android:layout_gravity="center"/>
     </LinearLayout>
 
 </FrameLayout>

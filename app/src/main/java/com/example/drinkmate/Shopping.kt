@@ -1,6 +1,5 @@
 package com.example.drinkmate
 
-import android.content.Intent.getIntent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,18 +10,12 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Shopping.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Shopping : Fragment() {
+    // Initializes variables
     private val db = Firebase.firestore
     private var cart1: HashMap<String, *>? = null
     private var cart2: HashMap<String, *>? = null
@@ -44,6 +37,7 @@ class Shopping : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        // Initializes variables
         val navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
         val navButton = view.findViewById<Button>(R.id.createShopping)
         val cart1name = view.findViewById<TextView>(R.id.cart1)
@@ -56,8 +50,10 @@ class Shopping : Fragment() {
             navController.navigate(R.id.action_shopping_to_shoppingCreation)
         }
 
+        // Fetches information of shopping carts from database
         db.collection("ShoppingCarts").document(uid).get()
             .addOnSuccessListener {
+                // If it exists, it'll fetch the information and assign the variable to it
                 if (it.get("carts1") != null) {
                     cart1 = it.get("carts1") as HashMap<String, *>
                 }
@@ -92,6 +88,7 @@ class Shopping : Fragment() {
                     }
                 }
             }
+        // Navigates to the different pages if it exists
         cart1name.setOnClickListener() {
             setFragmentResult("cartKey", bundleOf("carts1" to cart1))
             navController.navigate(R.id.action_shopping_to_shoppingView)

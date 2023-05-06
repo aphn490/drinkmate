@@ -6,12 +6,12 @@
     tools:context=".Shopping"
     android:id="@+id/shoppingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- TextView of Shopping Carts title-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,6 +20,7 @@
             android:textSize="40dp"
             android:textStyle ="bold"/>
 
+        <!-- TextView of Cart1 Name-->
         <TextView
             android:id="@+id/cart1"
             android:layout_width="match_parent"
@@ -27,6 +28,8 @@
             android:text=""
             android:textSize="40dp"
             android:gravity="center"/>
+
+        <!-- TextView of Cart2 Name-->
         <TextView
             android:id="@+id/cart2"
             android:layout_width="match_parent"
@@ -34,6 +37,8 @@
             android:text=""
             android:textSize="40dp"
             android:gravity="center"/>
+
+        <!-- TextView of Cart3 Name-->
         <TextView
             android:id="@+id/cart3"
             android:layout_width="match_parent"
@@ -41,6 +46,8 @@
             android:text=""
             android:textSize="40dp"
             android:gravity="center"/>
+
+        <!-- TextView of Cart4 Name-->
         <TextView
             android:id="@+id/cart4"
             android:layout_width="match_parent"
@@ -48,6 +55,8 @@
             android:text=""
             android:textSize="40dp"
             android:gravity="center"/>
+
+        <!-- TextView of Cart5 Name-->
         <TextView
             android:id="@+id/cart5"
             android:layout_width="match_parent"
@@ -56,6 +65,7 @@
             android:textSize="40dp"
             android:gravity="center"/>
 
+        <!-- Create New Cart Button-->
         <Button
             android:id="@+id/createShopping"
             android:layout_width="wrap_content"

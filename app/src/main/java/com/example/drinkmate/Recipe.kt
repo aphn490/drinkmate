@@ -177,6 +177,7 @@ class Recipe : Fragment() {
                 }
             }
 
+        // Retrieves information based on friend
         db.collection("UserAccounts").document(uid).collection("friends").get()
             .addOnSuccessListener {
                 friendsIds.clear()
@@ -191,6 +192,7 @@ class Recipe : Fragment() {
                 }
             }.addOnCompleteListener {
                 friendsButton.setOnClickListener {
+                    // Adds all friend information to spinners
                     friendsActive = true
                     recipeSpace.visibility = View.GONE
                     friendsSpinner.visibility = View.VISIBLE
@@ -206,6 +208,7 @@ class Recipe : Fragment() {
                 }
                 friendsSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                        // Populates recipes based on recipes from friends' user ids
                         resetFriendsRecipes()
                         if (p2 > 0) {
                             Toast.makeText(requireContext(), "Loading " + friendsEmails[p2] + "'s Recipes", Toast.LENGTH_SHORT).show()
@@ -243,6 +246,7 @@ class Recipe : Fragment() {
                                 }
                             }.addOnCompleteListener {
                                 if (it.isSuccessful) {
+                                    // Assigns textviews and images to friend recipe information
                                     if (friendsRecipe1 != null) {
                                         view.findViewById<TextView>(R.id.recipe1name).text = friendsRecipe1!!["name"] as String
                                         val img = friendsRecipe1!!["mainIngredient"] as String
@@ -292,6 +296,7 @@ class Recipe : Fragment() {
                 }
             }
 
+        // Adds your own recipe information to the view all page and removes the friends'
         yourRecipes.setOnClickListener() {
             friendsActive = false
             recipeSpace.visibility = View.VISIBLE
