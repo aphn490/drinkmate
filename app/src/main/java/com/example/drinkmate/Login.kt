@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 //import android.app.NotificationChannel
 //import android.app.NotificationManager
 import android.content.ContentValues
+import android.content.ContentValues.TAG
 //import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 //import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -23,6 +25,7 @@ import android.widget.Button
 //import android.widget.EditText
 //import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 //import com.example.drinkmate.databinding.ActivityMainBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.textfield.TextInputEditText
@@ -81,15 +84,53 @@ class Login : AppCompatActivity() {
 
                                 val data = hashMapOf("deviceToken" to token)
                                     auth.currentUser?.let { it1 ->
-                                        db.collection("users").document(
+                                        db.collection("UserAccounts").document(
                                             it1.uid).set(data, SetOptions.merge())
                                     }
+
+                                    /*
+                                    auth.currentUser?.let { it1 ->
+                                        db.collection("UserAccounts").document(
+                                            it1.uid).collection("friends").get()
+                                            .addOnSuccessListener { querySnapshot ->
+                                                // iterate through each document in the collection
+                                                for (document in querySnapshot.documents) {
+                                                    document.reference.update("can_view_location", false)
+                                                }
+                                            }
+                                            .addOnFailureListener { exception ->
+                                                Log.d(TAG, "Error getting documents: $exception")
+                                            }
+                                    }
+
+                                     */
+
+                                val userAccountRef = db.collection("UserAccounts").document(FirebaseAuth.getInstance().currentUser?.uid ?: "").collection("friends")
+                                    userAccountRef.get()
+                                        .addOnSuccessListener { querySnapshot ->
+                                            for (document in querySnapshot) {
+                                                val data = document.data
+                                                // Perform operations on the document data
+                                                document.reference.set(mapOf("can_view_location" to true), SetOptions.merge())
+                                            }
+
+                                        }
+
+
+
+                                //println("LOGIN START ============================================================")
+                                //startLocationService()
 
                                 // Log and toast
                                 Log.d(ContentValues.TAG, token)
                                 Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
                             })
+
+
+
+
                             startActivity(intent)
+
                         } else {
                             Toast.makeText( this@Login, "Authentication Failed", Toast.LENGTH_SHORT).show()
                         }
@@ -99,5 +140,4 @@ class Login : AppCompatActivity() {
             }
         }
     }
-
 }

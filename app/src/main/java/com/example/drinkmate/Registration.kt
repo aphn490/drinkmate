@@ -14,6 +14,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.android.gms.tasks.OnCompleteListener
 import android.util.Log
+import com.google.firebase.Timestamp
 import com.google.firebase.messaging.FirebaseMessaging
 
 import com.google.firebase.firestore.ktx.firestore
@@ -86,13 +87,24 @@ class Registration : AppCompatActivity() {
                                     Log.d(TAG, token)
                                     Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
 
+                                    val joinDate = Timestamp.now()
+
                                     val firebaseUser = auth.currentUser
 
                                     val user = User(
                                         UID = firebaseUser?.uid ?: "",
                                         deviceToken = userDevice,
                                         userName = un,
-                                        email = em
+                                        email = em,
+                                        is_user_location_tracking = true,
+                                        join_date = joinDate,
+                                        active_time = 0,
+                                        num_recipes_made = 0,
+                                        num_recipes_viewed = 0,
+                                        num_recipes_rated = 0,
+                                        num_barcodes_scanned = 0,
+                                        num_bars_visited = 0,
+                                        games_played = 0
                                     )
                                     val db = FirestoreUtil.getFirestore()
 

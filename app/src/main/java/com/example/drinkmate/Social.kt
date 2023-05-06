@@ -40,6 +40,7 @@ class Social : Fragment() {
         val socialView = inflater.inflate(R.layout.fragment_social, container, false)
         val mapButton = socialView.findViewById<Button>(R.id.button_toMap)
         val friendsButton = socialView.findViewById<Button>(R.id.button_toFriendsChat)
+        val friendMapButton = socialView.findViewById<Button>(R.id.button_toFriendMap)
 
         //Create a click listener for the map button and implement action, navigates to bar map when clicked
         mapButton.setOnClickListener {
@@ -48,6 +49,10 @@ class Social : Fragment() {
 
         friendsButton.setOnClickListener {
             findNavController().navigate(R.id.action_social_to_friendsChatTab2)
+        }
+
+        friendMapButton.setOnClickListener {
+            findNavController().navigate(R.id.action_social_to_friendMapFragment)
         }
 
         // Inflate the layout for this fragment

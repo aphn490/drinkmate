@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".RecipeView">
 
+    <!-- Vertical layout that holds all the layouts -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- Recipe View title -->
         <TextView
             android:id="@+id/viewRecipeTitle"
             android:layout_width="match_parent"
@@ -19,6 +21,7 @@
             android:text="Viewing Recipe"
             android:textSize="32dp" />
 
+        <!-- Horizontal layout that holds recipe image and name -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="99dp"
@@ -43,6 +46,7 @@
                 android:text="Name" />
         </LinearLayout>
 
+        <!-- Ingredients subtitle -->
         <TextView
             android:id="@+id/viewIngredientsDesc"
             android:layout_width="match_parent"
@@ -51,7 +55,9 @@
             android:textSize="28dp"
             android:text="Ingredients" />
 
+        <!-- Horizontal layout that holds the main alcohol ingredient and the name of it -->
         <LinearLayout
+            android:id="@+id/mainIngLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -70,7 +76,7 @@
 
         </LinearLayout>
 
-
+        <!-- All the ingredients the user had submitted -->
         <TextView
             android:id="@+id/viewIngredients"
             android:layout_width="match_parent"
@@ -78,6 +84,7 @@
             android:textSize="24dp"
             android:ems="10" />
 
+        <!-- Steps sub-title -->
         <TextView
             android:id="@+id/viewStepsDesc"
             android:layout_width="match_parent"
@@ -86,6 +93,7 @@
             android:textSize="28dp"
             android:text="Steps" />
 
+        <!-- All the steps the user had submitted -->
         <TextView
             android:id="@+id/viewSteps"
             android:layout_width="match_parent"
@@ -93,10 +101,87 @@
             android:textSize="24dp"
             android:ems="10" />
 
+        <!-- Steps sub-title -->
+        <TextView
+            android:id="@+id/viewNotesDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="28dp"
+            android:text="Notes" />
+
+        <!-- All the steps the user had submitted -->
+
+        <TextView
+            android:id="@+id/viewNotes"
+            android:layout_width="match_parent"
+            android:layout_height="225dp"
+            android:textSize="24dp"
+            android:ems="10" />
+
+        <LinearLayout
+            android:id="@+id/addNotesLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/notesList"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="0.8"
+                android:ems="10"
+                android:hint="Add Note to Recipe"
+                android:inputType="textMultiLine"
+                android:maxLines="5" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/addNotes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Add" />
+
+                <Button
+                    android:id="@+id/removeNotes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="Remove \nLatest" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/postNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post All Your Notes" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/showNotes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="View Notes" />
+
+            <Button
+                android:id="@+id/notesReturn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Return to Recipe" />
 
             <Button
                 android:id="@+id/viewReturn"
@@ -105,6 +190,13 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Return to list" />
+            <Button
+                android:id="@+id/rateButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Rate Recipe" />
         </LinearLayout>
 
     </LinearLayout>

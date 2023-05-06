@@ -50,11 +50,21 @@ class More : Fragment() {
             navController.navigate(R.id.action_more_to_chat)
         }
 
+        // Creates a value that references the shopping button
         val shopButton : TextView = view.findViewById(R.id.shoppingDescription)
-        chatButton.setOnClickListener() {
-            // Navigates the fragment to the chat fragment
+        shopButton.setOnClickListener() {
+            // Navigates the fragment to the shopping fragment
             navController.navigate(R.id.action_more_to_shopping)
         }
+
+        // Creates a value that references the stats button
+        val statsButton : TextView = view.findViewById(R.id.StatsDescription)
+        statsButton.setOnClickListener() {
+            // Navigates the fragment to the stats fragment
+            navController.navigate(R.id.action_more_to_stats)
+        }
+
+
         return view
     }
 }

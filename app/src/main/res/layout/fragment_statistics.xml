@@ -1,0 +1,252 @@
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- User profile card -->
+    <LinearLayout
+        android:id="@+id/profile_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/profile_card_background">
+
+
+    <!-- User profile picture -->
+        <ImageView
+            android:id="@+id/profile_picture"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/ic_baseline_person_24"
+            android:layout_gravity="center_horizontal"/>
+
+        <!-- User name -->
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User Name"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:gravity="center_horizontal"/>
+
+        <!-- User join date and membership duration -->
+        <LinearLayout
+            android:id="@+id/membership_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:paddingTop="8dp">
+
+            <!-- Join date -->
+            <TextView
+                android:id="@+id/join_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Month day, year"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+            <!-- Membership duration -->
+            <TextView
+                android:id="@+id/membership_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(0 Years, 0 Months, 0 Days)"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingLeft="8dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- User statistics list -->
+    <ScrollView
+        android:id="@+id/statistics_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/profile_card"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Active time -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/timetable"
+                    android:paddingRight="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Active time: 0 hours"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <!-- Recipes created -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/timetable"
+                    android:paddingRight="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Recipes created: 0"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <!-- Recipes viewed -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/timetable"
+                    android:paddingRight="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Recipes viewed: 0"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <!-- Recipes rated -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/timetable"
+                    android:paddingRight="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Recipes rated: 0"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <!-- Friends -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/timetable"
+                    android:paddingRight="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Friends: 0"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <!-- Barcodes scanned -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/timetable"
+                    android:paddingRight="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Barcodes scanned: 0"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <!-- Bars visited -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/timetable"
+                    android:paddingRight="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bars visited: 0"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <!-- Games played -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/timetable"
+                    android:paddingRight="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Games played: 0"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

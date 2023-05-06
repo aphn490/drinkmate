@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 
 class PersonAccount : AppCompatActivity() {
 
@@ -135,6 +136,7 @@ class PersonAccount : AppCompatActivity() {
                 "email" to senderEmail,
                 "status" to "Pending Friend Request"
             )
+
             db.collection("UserAccounts").document(senderID).collection("friends").document(receiverUID).set(friend)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful){
@@ -150,6 +152,28 @@ class PersonAccount : AppCompatActivity() {
                                }
                            }
                     }
+                }
+
+            val senderAccountRef = db.collection("UserAccounts").document(senderID).collection("friends")
+            senderAccountRef.get()
+                .addOnSuccessListener { querySnapshot1 ->
+                    for (document in querySnapshot1) {
+                        val data = document.data
+                        // Perform operations on the document data
+                        document.reference.set(mapOf("can_view_location" to true), SetOptions.merge())
+                    }
+
+                }
+
+            val reciverAccountRef = db.collection("UserAccounts").document(receiverUID).collection("friends")
+            reciverAccountRef.get()
+                .addOnSuccessListener { querySnapshot2 ->
+                    for (document in querySnapshot2) {
+                        val data = document.data
+                        // Perform operations on the document data
+                        document.reference.set(mapOf("can_view_location" to true), SetOptions.merge())
+                    }
+
                 }
         }
     }

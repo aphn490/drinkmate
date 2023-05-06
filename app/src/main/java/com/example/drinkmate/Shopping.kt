@@ -1,15 +1,21 @@
 package com.example.drinkmate
 
+import android.content.Intent.getIntent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -17,16 +23,16 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class Shopping : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private val db = Firebase.firestore
+    private var cart1: HashMap<String, *>? = null
+    private var cart2: HashMap<String, *>? = null
+    private var cart3: HashMap<String, *>? = null
+    private var cart4: HashMap<String, *>? = null
+    private var cart5: HashMap<String, *>? = null
+    private val uid = FirebaseAuth.getInstance().uid.toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -37,23 +43,74 @@ class Shopping : Fragment() {
         return inflater.inflate(R.layout.fragment_shopping, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Shopping.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Shopping().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+        val navButton = view.findViewById<Button>(R.id.createShopping)
+        val cart1name = view.findViewById<TextView>(R.id.cart1)
+        val cart2name = view.findViewById<TextView>(R.id.cart2)
+        val cart3name = view.findViewById<TextView>(R.id.cart3)
+        val cart4name = view.findViewById<TextView>(R.id.cart4)
+        val cart5name = view.findViewById<TextView>(R.id.cart5)
+
+        navButton.setOnClickListener(){
+            navController.navigate(R.id.action_shopping_to_shoppingCreation)
+        }
+
+        db.collection("ShoppingCarts").document(uid).get()
+            .addOnSuccessListener {
+                if (it.get("carts1") != null) {
+                    cart1 = it.get("carts1") as HashMap<String, *>
+                }
+                if (it.get("carts2") != null) {
+                    cart2 = it.get("carts2") as HashMap<String, *>
+                }
+                if (it.get("carts3") != null) {
+                    cart3 = it.get("carts3") as HashMap<String, *>
+                }
+                if (it.get("carts4") != null) {
+                    cart4 = it.get("carts4") as HashMap<String, *>
+                }
+                if (it.get("carts5") != null) {
+                    cart5 = it.get("carts5") as HashMap<String, *>
+                }
+            }.addOnCompleteListener {
+                if (it.isSuccessful) {
+                    if (cart1 != null) {
+                        cart1name.text = cart1!!["name"] as String
+                    }
+                    if (cart2 != null) {
+                        cart2name.text = cart2!!["name"] as String
+                    }
+                    if (cart3 != null) {
+                        cart3name.text = cart3!!["name"] as String
+                    }
+                    if (cart4 != null) {
+                        cart4name.text = cart4!!["name"] as String
+                    }
+                    if (cart5 != null) {
+                        cart5name.text = cart5!!["name"] as String
+                    }
                 }
             }
+        cart1name.setOnClickListener() {
+            setFragmentResult("cartKey", bundleOf("carts1" to cart1))
+            navController.navigate(R.id.action_shopping_to_shoppingView)
+        }
+        cart2name.setOnClickListener() {
+            setFragmentResult("cartKey", bundleOf("carts2" to cart2))
+            navController.navigate(R.id.action_shopping_to_shoppingView)
+        }
+        cart3name.setOnClickListener() {
+            setFragmentResult("cartKey", bundleOf("carts3" to cart3))
+            navController.navigate(R.id.action_shopping_to_shoppingView)
+        }
+        cart4name.setOnClickListener() {
+            setFragmentResult("cartKey", bundleOf("carts4" to cart4))
+            navController.navigate(R.id.action_shopping_to_shoppingView)
+        }
+        cart5name.setOnClickListener() {
+            setFragmentResult("cartKey", bundleOf("carts5" to cart5))
+            navController.navigate(R.id.action_shopping_to_shoppingView)
+        }
     }
 }

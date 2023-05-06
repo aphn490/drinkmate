@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/kingscup"
     tools:context=".kingscup">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Constraint Layout that will hold all the screen's buttons and TextViews -->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
+        android:layout_height="match_parent">
+        <!--Picture of the game -->
+        <ImageView
+            android:id="@+id/cuppic"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
+            android:src="@drawable/ringoffire"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--Requirements of the game -->
+        <TextView
+            android:id="@+id/requirements"
+            android:layout_width="350dp"
+            android:layout_height="30dp"
+            android:text="Requires a deck of cards"
+            android:textSize="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cuppic" />
+        <!--Game Instructions and rules -->
+        <TextView
+            android:id="@+id/instructions"
+            android:layout_width="400dp"
+            android:layout_height="450dp"
+            android:text="Place the cards around in a ring upside down.
+Players will go in a circle drawing a card and have to fulfill a task depending on what card it is.
+\nAce - Going around the circle, each player starts drinking their drink consecutively and has to continue drinking until the player before stops.
+\n2 - The player that draws this card points to someone to take a drink
+\n3 - The player that draws this card takes a drink
+\n4 - All the females have to take a drink
+\n5 - The person that draws this card has to put their hand down on the table and the last to do so drinks
+\n6 - All the males have to take a drink
+\n7 - Similar to the rule for drawing a 5 but instead you have to point your hand up in the sky
+\n8 - Choose a friend to be your 'mate' and everytime one drinks the other drinks
+\n9 - The player that draws the card chooses a word to rhyme and everyone goes around in a circle saying words that rhyme, if you fail you have to drink
+\n10 - Similar to the rule for drawing a 9 but instead you choose a category and someone has to name something within that category
+\nJ - The player that draws this card makes a rule that everyone has to follow, if they fail they must drink
+\nQ - Ask another player a question and if they must answer with another question, if they don't they have to drink
+\nK - Fill up the center cup with your drink, whoever draws the 4th king must drink the cup in the middle"
+            android:textSize="13dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/requirements" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

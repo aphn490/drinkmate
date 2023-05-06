@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".Recipe">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Vertical Layout that holds all the layouts -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- Recipes Title -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,11 +20,13 @@
             android:textSize="32dp"
             android:text="Recipes" />
 
+        <!-- Horizontal Layout that holds all the yours and search buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:orientation="horizontal">
 
+            <!-- Your recipes button -->
             <Button
                 android:id="@+id/yourRecipes"
                 android:layout_width="0dp"
@@ -32,8 +35,9 @@
                 android:text="Yours" />
 
 
+            <!-- Search recipes button -->
             <Button
-                android:id="@+id/searchRecipes"
+                android:id="@+id/friendsRecipes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -41,8 +45,15 @@
         </LinearLayout>
 
         <Space
+            android:id="@+id/recipeSpace"
             android:layout_width="match_parent"
             android:layout_height="20dp" />
+
+        <!-- Horizontal layout that holds recipe 1 and its name -->
+        <Spinner
+            android:id="@+id/friendsSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,6 +77,7 @@
                 android:text="TextView" />
         </LinearLayout>
 
+        <!-- Horizontal layout that holds recipe 2 and its name -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -88,6 +100,7 @@
                 android:text="TextView" />
         </LinearLayout>
 
+        <!-- Horizontal layout that holds recipe 3 and its name -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -110,6 +123,7 @@
                 android:text="TextView" />
         </LinearLayout>
 
+        <!-- Horizontal layout that holds recipe 4 and its name -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -132,6 +146,7 @@
                 android:text="TextView" />
         </LinearLayout>
 
+        <!-- Horizontal layout that holds recipe 5 and its name -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -154,6 +169,7 @@
                 android:text="TextView" />
         </LinearLayout>
 
+        <!-- Horizontal layout that holds previous and next page buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

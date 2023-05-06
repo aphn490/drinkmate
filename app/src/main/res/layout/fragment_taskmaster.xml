@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/taskmaster"
+    tools:context=".taskmaster">
+
+    <!-- Constraint Layout that will hold all the screen's buttons and TextViews -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--Picture of the game -->
+        <ImageView
+            android:id="@+id/taskmasterpic"
+            android:layout_width="800dp"
+            android:layout_height="400dp"
+            android:src="@drawable/taskmaster2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--Requirements of the game -->
+        <TextView
+            android:id="@+id/requirements"
+            android:layout_width="350dp"
+            android:layout_height="90dp"
+            android:text="First randomly appoint a task manager. The more players the better."
+            android:textSize="25dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/taskmasterpic" />
+        <!--Game Instructions and rules -->
+        <TextView
+            android:id="@+id/instructions"
+            android:layout_width="400dp"
+            android:layout_height="450dp"
+            android:text="The task manager assigns a task for a specfic person. If they do not
+complete the task they must drink. If they do complete it they become the next task manager. An
+example of a good task could be 'You must go up to a random stranger and dance in front of them for 20 seconds'
+This game is a good way to have fun and potentially meet new people! :D"
+            android:textSize="17dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/requirements" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

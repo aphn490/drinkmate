@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout for alert dialog popup for friend map settings menu -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:radius="10dp"
+    >
+
+    <!-- Top bar with title for friend map settings-->
+    <TextView
+        android:id="@+id/textView_friendMapSettings_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Friend Map Settings"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:background="@color/purple_700"
+        android:textColor="@android:color/white"/>
+
+    <!-- Settings -->
+    <LinearLayout
+        android:layout_below="@id/textView_friendMapSettings_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout_friendMapSettings_main">
+
+    <LinearLayout
+        android:layout_below="@id/textView_friendMapSettings_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Toggle Your Location to Friends Title-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Toggle Your Location to Friends"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+        <!-- Toggle Your Location to Friends Switch button-->
+        <Switch
+            android:id="@+id/switch_friendMapSettings_userLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Enabled"
+            android:textColor="@color/dark_green"
+            android:textOff="OFF"
+            android:textOn="ON"
+            android:checked="true"
+            android:theme="@style/SwitchCompatStyle"/>
+
+        <View
+            android:id="@+id/friendMapSettings_divider1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:layout_below="@id/textView_friendMapSettings_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <!-- Choose Friend Markers to Display Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Friend Markers to Display"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="16dp"/>
+
+        </LinearLayout>
+
+        <!-- Choose Friend Markers to Display Recycler View to list friends -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_friendMapSettings_friendList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            app:layoutManager="LinearLayoutManager"/>
+
+        <View
+            android:id="@+id/friendMapSettings_divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="?android:attr/listDivider" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/linearLayout_friendMapSettings_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+    <!-- Submit button at bottom -->
+        <Button
+            android:id="@+id/button_friendMapSettings_confirm"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="false"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#C31F22"
+            android:text="Confirm" />
+
+        <!-- Cancel button at bottom -->
+        <Button
+            android:id="@+id/button_friendMapSettings_cancel"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="false"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#808080"
+            android:text="Cancel" />
+
+    </LinearLayout>
+
+</RelativeLayout>
