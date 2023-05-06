@@ -72,7 +72,7 @@
             app:destination="@id/recipeCreation" />
         <action
             android:id="@+id/action_drinks_to_drinkSearch"
-            app:destination="@id/drinkSearch" />
+            app:destination="@id/search_drink" />
     </fragment>
 
     <fragment
@@ -176,6 +176,12 @@
         android:name="com.example.drinkmate.FindFriends"
         android:label="activity_find_friends"
         tools:layout="@layout/activity_find_friends"/>
+
+    <activity
+        android:id="@+id/search_drink"
+        android:name="com.example.drinkmate.search_drink"
+        android:label="activity_search_drink"
+        tools:layout="@layout/activity_search_drink"/>
 
     <fragment
         android:id="@+id/congestionMap"
