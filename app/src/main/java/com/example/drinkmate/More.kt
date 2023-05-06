@@ -63,7 +63,10 @@ class More : Fragment() {
             // Navigates the fragment to the stats fragment
             navController.navigate(R.id.action_more_to_stats)
         }
-
+        val feedbackButton : TextView = view.findViewById(R.id.appFeedbackDesc)
+        feedbackButton.setOnClickListener() {
+            navController.navigate(R.id.action_more_to_feedback)
+        }
 
         return view
     }

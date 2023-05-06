@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_more_to_stats"
             app:destination="@id/stats" />
+        <action
+            android:id="@+id/action_more_to_feedback"
+            app:destination="@id/appFeedback" />
 
     </fragment>
     <!-- Calculator Fragment -->
@@ -199,6 +202,12 @@
         android:label="activity_find_group"
         tools:layout="@layout/activity_find_group"
         />
+
+    <activity
+        android:id="@+id/appFeedback"
+        android:name="com.example.drinkmate.appFeedback"
+        android:label="activity_app_feedback"
+        tools:layout="@layout/activity_app_feedback"/>
 
     <activity
         android:id="@+id/search_drink"

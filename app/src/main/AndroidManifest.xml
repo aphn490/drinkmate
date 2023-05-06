@@ -45,6 +45,13 @@
         </service>
 
         <activity
+            android:name=".appFeedback"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".search_drink"
             android:exported="false">
             <meta-data
