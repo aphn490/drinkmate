@@ -32,5 +32,13 @@
         android:layout_marginTop="50dp"
         />
 
+    <Button
+        android:id="@+id/findGroup"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:text="Find Group"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"/>
+
 
 </FrameLayout>

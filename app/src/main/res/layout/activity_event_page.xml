@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EventPage">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <TextView
+            android:id="@+id/eventNamePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="50dp"
+            android:layout_gravity="center_horizontal"
+            android:text="EVENT NAME "/>
+
+        <TextView
+            android:id="@+id/eventDatePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="DATE: "
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/eventTimePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="TIME: "
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/eventLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="LOCATION: "
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/eventDescriptionPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="DESC DESC DESC DESC DESC"
+            android:layout_marginLeft="10dp"/>
+
+        <Button
+            android:id="@+id/eventInteractButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Join Event"
+            android:textColor="@color/black"
+            android:backgroundTint="#00FF00"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/membersAttending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/all_users_display_layout"/>
+    </LinearLayout>
+
+</ScrollView>

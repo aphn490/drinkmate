@@ -56,6 +56,10 @@
         <action
             android:id="@+id/action_more_to_find_friends"
             app:destination="@+id/findFriends" />
+        <action
+            android:id="@+id/action_more_to_find_group"
+            app:destination="@+id/findGroup"
+            />
     </fragment>
 
     <!-- Drinks Fragment -->
@@ -189,6 +193,12 @@
         android:name="com.example.drinkmate.FindFriends"
         android:label="activity_find_friends"
         tools:layout="@layout/activity_find_friends"/>
+    <activity
+        android:id="@+id/findGroup"
+        android:name="com.example.drinkmate.FindGroup"
+        android:label="activity_find_group"
+        tools:layout="@layout/activity_find_group"
+        />
 
     <activity
         android:id="@+id/search_drink"
