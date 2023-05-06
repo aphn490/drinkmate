@@ -189,6 +189,9 @@ class RecipeView : Fragment() {
                 }
             }
         }
+        rateButton.setOnClickListener(){
+            navController.navigate(R.id.action_recipeView_to_rateRecipe)
+        }n
         returnButton.setOnClickListener() {
             activity?.onBackPressed()
         }
