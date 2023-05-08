@@ -5,6 +5,7 @@ import android.media.metrics.Event
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.DocumentChange
@@ -20,6 +21,7 @@ class GroupEventsPage : AppCompatActivity() {
     private lateinit var eventRecyclerView : RecyclerView
     private lateinit var eventArrayList : ArrayList<EventForRecycler>
     private lateinit var myEventAdapter: EventAdapter
+    private lateinit var button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +51,13 @@ class GroupEventsPage : AppCompatActivity() {
                 startActivity(intent)
             }
         })
+
+        button = findViewById(R.id.AddEventButton)
+        button.setOnClickListener {
+            val intent = Intent(this, CreateEvent::class.java)
+            intent.putExtra("GroupName", gn)
+            startActivity(intent)
+        }
 
         eventChangeListener()
     }

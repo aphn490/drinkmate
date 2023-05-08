@@ -20,10 +20,12 @@
         android:paddingBottom="10dp"/>
 
     <Button
+        android:id="@+id/createGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Group"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/green"/>
 
 
     <androidx.recyclerview.widget.RecyclerView

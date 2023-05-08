@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.DocumentChange
@@ -18,6 +19,7 @@ class FindGroup : AppCompatActivity() {
     private lateinit var groupRecyclerView: RecyclerView
     private lateinit var groupArrayList: ArrayList<GroupForRecycler>
     private lateinit var myGroupAdapter: GroupAdapter
+    private lateinit var button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +42,13 @@ class FindGroup : AppCompatActivity() {
                 startActivity(intent)
             }
         })
+
+        button = findViewById(R.id.createGroup)
+        button.setOnClickListener {
+            val intent = Intent(this@FindGroup, CreateGroup::class.java)
+            startActivity(intent)
+        }
+
 
         eventChangeListener()
 

@@ -23,6 +23,12 @@
         android:theme="@style/Theme.Drinkmate"
         tools:targetApi="31">
         <activity
+            android:name=".CreateEvent"
+            android:exported="false" />
+        <activity
+            android:name=".CreateGroup"
+            android:exported="false" />
+        <activity
             android:name=".Scanner"
             android:exported="false">
             <meta-data
