@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfile">
+
+
+
+    <TextView
+        android:id="@+id/editHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="left"
+        android:text="Edit Profile"
+        android:textSize="50dp"
+        />
+
+
+    <!--Text input areas for email, username, and full name-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/newEmailText"
+        android:hint="new email"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="105dp"
+        android:textStyle="bold"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/newEmail"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="122dp"
+        android:background="#cccccc"
+        android:hint=" new email"
+        android:minHeight="48dp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--username-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/usernameText"
+        android:hint="username"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="175dp"
+        android:textStyle="bold"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/username"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="192dp"
+        android:background="#cccccc"
+        android:hint=" username"
+        android:minHeight="48dp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--full name-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fullNameText"
+        android:hint="full name"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="245dp"
+        android:textStyle="bold"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/fullname"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="262dp"
+        android:background="#cccccc"
+        android:hint=" full name"
+        android:minHeight="48dp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+    <TextView
+        android:id="@+id/uploadText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="320dp"
+        android:text="Upload Profile Picture" />
+
+    <!--Image that serves also as a profile pic preview-->
+    <ImageView
+        android:id="@+id/uploadImage"
+        android:layout_width="164dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="340dp"
+        android:layout_gravity="left"
+        app:srcCompat="@drawable/clouduploadicon" />
+
+    <!--button to upload the image-->
+    <Button
+        android:id="@+id/upldButton"
+        android:layout_width="134dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="left"
+        android:text="Upload Pic" />
+
+    <!--button to save the changes-->
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginLeft="50dp"
+        android:text="Save" />
+
+    <!--button to go back to account-->
+    <Button
+        android:id="@+id/doneButton"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="600dp"
+        android:layout_marginRight="50dp"
+        android:text="Done" />
+
+
+</FrameLayout>

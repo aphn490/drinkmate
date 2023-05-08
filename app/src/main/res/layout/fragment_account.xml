@@ -3,26 +3,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    
     tools:context=".Account">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/accName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="UserName"
-        android:textSize="30dp"
-        android:layout_gravity="center"/>
+    <!--lines 11-62, 73-85, and 96-104 done by Jedidiah Shank-->
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        </LinearLayout>
 
     <ImageView
-        android:id="@+id/profilePicture"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="-100dp"
-        android:layout_gravity="center"
-        android:src="@drawable/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="182dp"
+        android:src="@drawable/ic_round_light_mode_24">
+
+    </ImageView>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/mode_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="25dp"
+        android:checked="false">
+
+    </androidx.appcompat.widget.SwitchCompat>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="182dp"
+        android:layout_marginLeft="80dp"
+        android:src="@drawable/ic_round_dark_mode_24">
+
+    </ImageView>
+
+    <!---->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username: "
+        android:textSize="18dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="20dp"
         />
-    
+
+    <!--placeholder for username-->
+    <TextView
+        android:id="@+id/accUsername"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="20dp"
+        android:textSize="18dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email: "
+        android:textSize="18dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="100dp"
+        />
+
+    <!--placeholder for email-->
+    <TextView
+        android:id="@+id/accEmail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="100dp"
+        android:textSize="18dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name: "
+        android:textSize="18dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="134dp"
+        />
+
+    <!--placeholder for full name-->
+    <TextView
+        android:id="@+id/accFullName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="67dp"
+        android:layout_marginTop="134dp"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/accFriends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-110dp"
+        android:text="Friends List"
+        android:textSize="25dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="210dp"
+        android:background="#5418a3"/>
+
+    <!--placeholder for profile picture-->
+    <ImageView
+        android:id="@+id/profilePicture"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top"
+        android:layout_marginTop="0dp"
+        />
+
     <Button
         android:id="@+id/findFriends"
         android:layout_width="230dp"
@@ -39,6 +145,17 @@
         android:text="Find Group"
         android:layout_gravity="center"
         android:layout_marginTop="100dp"/>
+
+    <!--button that leads to editProfile page-->
+    <Button
+        android:id="@+id/editProfile"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="160dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="#FF6200EE"
+        android:text="edit" />
 
 
 </FrameLayout>

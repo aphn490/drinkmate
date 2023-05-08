@@ -22,4 +22,7 @@
     <style name="Theme.Drinkmate.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Drinkmate.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+
 </resources>

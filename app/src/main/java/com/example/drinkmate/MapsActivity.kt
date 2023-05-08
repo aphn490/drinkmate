@@ -353,12 +353,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             "lat" to bar.coordinates.latitude,
             "long" to bar.coordinates.longitude,
             "image" to bar.image_url
-                )
+        )
 
         // Brings up the document under the FavoriteBars collection that has the user's id from firebase
         val namesRef = db.collection("FavoriteBars").document(currentuid.toString())
         namesRef.get().addOnCompleteListener {
-            task ->
+                task ->
             //Once the task is completed, it'll undergo the following code
             if (task.isSuccessful) {
                 val doc = task.result
@@ -409,7 +409,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 Log.d(TAG, "get failed with ", task.exception)
             }
         }
-        }
+    }
 
 
     //Get barObjArrayListGlobal, arraylist of bar objects
@@ -508,8 +508,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             ubuilder.appendQueryParameter("location", locationStr)
             val geocoder = Geocoder(this)
             val coords = geocoder.getFromLocationName(locationStr, 1)
-            val latitude = coords[0].latitude
-            val longitude = coords[0].longitude
+            val latitude = coords!![0].latitude
+            val longitude = coords!![0].longitude
 
             sentLocLat = latitude
             sentLocLong = longitude

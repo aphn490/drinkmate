@@ -33,6 +33,7 @@
         <action
             android:id="@+id/action_more_to_chat"
             app:destination="@+id/chat"/>
+
         <action
             android:id="@+id/action_more_to_shopping"
             app:destination="@id/shopping" />
@@ -57,8 +58,11 @@
         android:label="fragment_account"
         tools:layout="@layout/fragment_account">
         <action
-            android:id="@+id/action_more_to_find_friends"
+            android:id="@+id/action_account_to_find_friends"
             app:destination="@+id/findFriends" />
+        <action
+            android:id="@+id/action_account_to_edit_profile"
+            app:destination="@+id/EditProfile"/>
         <action
             android:id="@+id/action_more_to_find_group"
             app:destination="@+id/findGroup"
@@ -92,8 +96,17 @@
     <fragment
         android:id="@+id/scan"
         android:name="com.example.drinkmate.Scan"
-        android:label="fragment_scan"
-        tools:layout="@layout/fragment_scan" />
+        android:label="activity_scan"
+        tools:layout="@layout/fragment_scan" >
+        <action
+            android:id="@+id/action_scan_to_scanner"
+            app:destination="@id/Scanner" />
+    </fragment>
+    <activity
+        android:id="@+id/Scanner"
+        android:name="com.example.drinkmate.Scanner"
+        android:label="activity_Scanner"
+        tools:layout="@layout/activity_scanner"/>
     <!-- Social Fragment -->
     <fragment
         android:id="@+id/social"
@@ -196,6 +209,14 @@
         android:name="com.example.drinkmate.FindFriends"
         android:label="activity_find_friends"
         tools:layout="@layout/activity_find_friends"/>
+    <fragment
+        android:id="@+id/EditProfile"
+        android:name="com.example.drinkmate.EditProfile"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile"/>
+
+
+
     <activity
         android:id="@+id/findGroup"
         android:name="com.example.drinkmate.FindGroup"
