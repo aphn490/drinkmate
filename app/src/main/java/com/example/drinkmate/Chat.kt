@@ -23,7 +23,7 @@ class ChatFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: FirestoreRecyclerAdapter<Message, MessageViewHolder>
     private lateinit var messageEditText: EditText
-    private lateinit var sendButton: Button
+    private lateinit var sendButton: ImageButton
     private lateinit var currentUser: String
     private lateinit var friendToken: String
     private var friendUid: String = ""
@@ -38,7 +38,9 @@ class ChatFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.recyclerView)
         messageEditText = view.findViewById(R.id.messageEditText)
-        sendButton = view.findViewById(R.id.sendButton)
+        sendButton = view.findViewById(R.id.send_msg_image_button)
+
+
 
         //Get friend uid
         friendUid = arguments?.getString(FRIEND_UID_KEY) ?: ""
@@ -99,6 +101,17 @@ class ChatFragment : Fragment() {
                 messageEditText.setText("")
             }
         }
+
+        /*
+        //Click listener for send message button to send message
+        sendButton.setOnClickListener {
+            val messageText = messageEditText.text.toString().trim()
+            if (messageText.isNotEmpty()) {
+                sendMessage(messageText)
+                messageEditText.setText("")
+            }
+        }
+         */
         return view
     }
 
