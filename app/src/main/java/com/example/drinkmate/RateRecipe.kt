@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.RatingBar
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.FirebaseFirestore
+import android.widget.Toast
 
 class RateRecipe : Fragment() {
     override fun onCreateView(
@@ -34,7 +35,12 @@ class RateRecipe : Fragment() {
 
             if (starRating.isNotEmpty() && userFeedback.isNotEmpty()){
                 db.collection("RecipeRating").add(rFeedback)
+                Toast.makeText(activity, "Rating has been made",Toast.LENGTH_SHORT).show()
             }
+            else{
+                Toast.makeText(activity, "Please fill out the fields",Toast.LENGTH_SHORT).show()
+            }
+
         }
         return view
     }
