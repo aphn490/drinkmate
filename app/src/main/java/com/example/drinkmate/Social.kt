@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
@@ -38,6 +39,7 @@ class Social : Fragment() {
     ): View? {
         //
         val socialView = inflater.inflate(R.layout.fragment_social, container, false)
+        /*
         val mapButton = socialView.findViewById<Button>(R.id.button_toMap)
         val friendsButton = socialView.findViewById<Button>(R.id.button_toFriendsChat)
         val friendMapButton = socialView.findViewById<Button>(R.id.button_toFriendMap)
@@ -53,6 +55,44 @@ class Social : Fragment() {
 
         friendMapButton.setOnClickListener {
             findNavController().navigate(R.id.action_social_to_friendMapFragment)
+        }
+
+         */
+
+        // Creates a value that references the friends button
+        val friendsButton : TextView = socialView.findViewById(R.id.SocialFriendsTitle)
+        friendsButton.setOnClickListener() {
+            // Navigates the fragment to the friends fragment
+            findNavController().navigate(R.id.action_social_to_friendsChatTab2)
+        }
+        val friendsButton2 : TextView = socialView.findViewById(R.id.SocialFriendsDesc)
+        friendsButton2.setOnClickListener() {
+            // Navigates the fragment to the friends fragment
+            findNavController().navigate(R.id.action_social_to_friendsChatTab2)
+        }
+
+        // Creates a value that references the friend map button
+        val friendMapButton : TextView = socialView.findViewById(R.id.SocialFriendMapTitle)
+        friendMapButton.setOnClickListener() {
+            // Navigates the fragment to the friend map fragment
+            findNavController().navigate(R.id.action_social_to_friendMapFragment)
+        }
+        val friendMapButton2 : TextView = socialView.findViewById(R.id.SocialFriendMapDesc)
+        friendMapButton2.setOnClickListener() {
+            // Navigates the fragment to the friend map fragment
+            findNavController().navigate(R.id.action_social_to_friendMapFragment)
+        }
+
+        // Creates a value that references the bar map button
+        val barMapButton : TextView = socialView.findViewById(R.id.SocialBarMapTitle)
+        barMapButton.setOnClickListener() {
+            // Navigates the fragment to the bar map fragment
+            findNavController().navigate(R.id.action_social_to_mapsActivity)
+        }
+        val barMapButton2 : TextView = socialView.findViewById(R.id.SocialBarMapDesc)
+        barMapButton2.setOnClickListener() {
+            // Navigates the fragment to the bar map fragment
+            findNavController().navigate(R.id.action_social_to_mapsActivity)
         }
 
         // Inflate the layout for this fragment
