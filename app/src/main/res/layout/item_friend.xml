@@ -33,7 +33,8 @@
             android:id="@+id/friend_location_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_baseline_place_24"/>
+            android:alpha="0"
+            app:srcCompat="@drawable/ic_baseline_place_24" />
 
         <ImageButton
             android:id="@+id/chat_button"
