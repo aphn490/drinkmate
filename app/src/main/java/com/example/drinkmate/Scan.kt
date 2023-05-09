@@ -13,6 +13,9 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.zxing.integration.android.IntentIntegrator
 
 
@@ -29,6 +32,10 @@ class Scan : Fragment() {
         val scanButton : Button = scanview.findViewById(R.id.scanButton)
         scanButton.setOnClickListener{
             findNavController().navigate(R.id.action_scan_to_scanner)
+
+            val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+            val userDocumentRef = FirebaseFirestore.getInstance().collection("UserAccounts").document(currentUserID ?: "")
+            userDocumentRef?.update("num_barcodes_scanned", FieldValue.increment(1))
         }
         return scanview
     }

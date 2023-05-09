@@ -8,6 +8,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RatingBar
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
 class RateRecipe : Fragment() {
@@ -35,6 +37,9 @@ class RateRecipe : Fragment() {
             if (starRating.isNotEmpty() && userFeedback.isNotEmpty()){
                 db.collection("RecipeRating").add(rFeedback)
             }
+            val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+            val userDocumentRef = FirebaseFirestore.getInstance().collection("UserAccounts").document(currentUserID ?: "")
+            userDocumentRef?.update("num_recipes_rated", FieldValue.increment(1))
         }
         return view
     }

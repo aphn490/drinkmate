@@ -63,7 +63,7 @@ class Stats : Fragment() {
         recipesView_textView = rootView.findViewById<TextView>(R.id.recipes_viewed_stats)
         recipesRated_textView = rootView.findViewById<TextView>(R.id.recipes_rated_stats)
         friends_textView = rootView.findViewById<TextView>(R.id.friends_stats)
-        groups_textView = rootView.findViewById<TextView>(R.id.groups_stats)
+        //groups_textView = rootView.findViewById<TextView>(R.id.groups_stats)
         barcodesScanned_textView = rootView.findViewById<TextView>(R.id.barcodes_scanned_stats)
         barsVisited_textView = rootView.findViewById<TextView>(R.id.bars_visited_stats)
         gamesPlayed_textView = rootView.findViewById<TextView>(R.id.games_played_stats)
