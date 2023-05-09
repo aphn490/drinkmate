@@ -1,8 +1,11 @@
 package com.example.drinkmate
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -12,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
@@ -87,6 +91,28 @@ class FriendMapFragment : Fragment(), OnMapReadyCallback {
             dialogBuilder.setView(dialogView)
 
             val showUserLocationSwitch = dialogView.findViewById<Switch>(R.id.switch_friendMapSettings_userLocation)
+
+            //Set GPS swtich on friend map settings launch
+            val firestore = FirebaseFirestore.getInstance()
+            val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+            val userDocumentRef = firestore.collection("UserAccounts").document(currentUserID ?: "")
+            // Retrieve the user's "is_user_location_tracking" field as a boolean
+            userDocumentRef.get().addOnSuccessListener { documentSnapshot ->
+                val isUserTrack = documentSnapshot.getBoolean("is_user_location_tracking")
+                // Do something with the is_user_location_tracking value
+                if (isUserTrack == true) {
+                    showUserLocationSwitch.isChecked = true
+                    showUserLocationSwitch.text = "Enabled"
+                    showUserLocationSwitch.setTextColor(ContextCompat.getColor(requireContext(), R.color.dark_green))
+                }
+                else {
+                    showUserLocationSwitch.isChecked = false
+                    showUserLocationSwitch.text = "Disabled"
+                    showUserLocationSwitch.setTextColor(ContextCompat.getColor(requireContext(), R.color.red))
+                }
+            }.addOnFailureListener { exception ->
+                Log.d(TAG, "Error getting join date: $exception")
+            }
 
             //Listener for switch for whether user wants to enable or disable location tracking
             showUserLocationSwitch.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener {
@@ -186,7 +212,7 @@ class FriendMapFragment : Fragment(), OnMapReadyCallback {
                 // Perform the action you want when the item is clicked
                 // For example, increase the opacity of the cardview or un-grey the color
                 // Update the Firebase value associated with the clicked friend
-
+                print("BEGIN GPS is currently: ' $isFriendSelected ' ===================")
                 if (isFriendSelected) {
                     view.alpha = 0.2f
                     val message = "Off!"
@@ -203,6 +229,8 @@ class FriendMapFragment : Fragment(), OnMapReadyCallback {
                     mMap.clear()
                 }
                 isFriendSelected = !isFriendSelected
+                print("END GPS is currently: ' $isFriendSelected ' ===================")
+
 
 
 
@@ -265,10 +293,52 @@ class FriendMapFragment : Fragment(), OnMapReadyCallback {
         userAccountRef.update(data)
     }
 
+    //Check Android location permissions
+    private fun checkLocationPermission(context: Context): Boolean {
+        println("gpsLocation....")
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return false
+        }
+        return true
+    }
+
+    private var PERMISSION_ID = 44
+
+    //Request Android location permissions
+    fun requestLocationPermissions(activity: Activity) {
+        ActivityCompat.requestPermissions(
+            activity, arrayOf(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ), PERMISSION_ID
+        )
+    }
+
     //Implement customization for map once ready
+    @SuppressLint("MissingPermission")
     override fun onMapReady(map: GoogleMap) {
         mMap = map
 
+        // Check if the app has location permission
+        if (checkLocationPermission(requireContext())) {
+            // Permission is already granted, enable location
+            mMap.isMyLocationEnabled = true
+        } else {
+            // Permission is not yet granted, request permission from the user
+            requestLocationPermissions(requireActivity())
+        }
+        val locationLayer = mMap?.isMyLocationEnabled
+        if (locationLayer != null && locationLayer) {
+            mMap?.isMyLocationEnabled = true
+            mMap?.uiSettings?.isMyLocationButtonEnabled = true
+        }
 
         mMap.mapType = GoogleMap.MAP_TYPE_HYBRID
         mMap.uiSettings.isZoomControlsEnabled = true;
