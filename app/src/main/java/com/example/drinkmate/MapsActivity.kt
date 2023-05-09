@@ -30,6 +30,8 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener
 import com.google.android.gms.maps.model.*
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -110,6 +112,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     editTextLocation.alpha = 0.5f
                     useGPSLocation = true
                     isGPS = true
+                    println("Use GPS->True")
                 }
                 else {
                     editTextLocation.isFocusable = true
@@ -118,6 +121,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     editTextLocation.alpha = 1f
                     useGPSLocation = false
                     isGPS = false
+                    println("Use GPS->False")
                 }
             }
         })
@@ -231,7 +235,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         val confirmButton = dialogView.findViewById<Button>(R.id.confirm_button)
         confirmButton.setOnClickListener {
             alertDialog.dismiss()
-
+            println("Use GPS was set to ' $useGPSLocation ' when submitted")
             requestUrl = generateString(useGPSLocation, locationStr, radiusValue, ratingValue, costValue)
             // Obtain the SupportMapFragment and get notified when the map is ready to be used.
             val mapFragment = supportFragmentManager
@@ -341,6 +345,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         }
     }
 
+    fun updateNumOfBarsFavorited() {
+        val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+        val userDocumentRef = FirebaseFirestore.getInstance().collection("UserAccounts").document(currentUserID ?: "")
+        userDocumentRef?.update("num_bars_visited", FieldValue.increment(1))
+    }
+
     // Overrides the function that listens to user clicking on the info window that pops up
     override fun onInfoWindowClick(marker: Marker) {
         // Retrieves the user ID from firebase's authentication
@@ -361,6 +371,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 task ->
             //Once the task is completed, it'll undergo the following code
             if (task.isSuccessful) {
+                updateNumOfBarsFavorited()
                 val doc = task.result
                 // If bar 1 doesn't exist yet, it will update the document with the bar details under
                 // the name "bar1"
@@ -579,6 +590,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
         //Convert the Json String into a Json Object
         var jsonObj = JSONObject(resB)
+        println("begin jsonObj++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        println(jsonObj)
+        println("end jsonObj++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         //Convert the Json Object into a Json Array
         var jsonArray = jsonObj.getJSONArray("businesses")
         //Initialize Google Gson to serialize json objects into kotlin objects

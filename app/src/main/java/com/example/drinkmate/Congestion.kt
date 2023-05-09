@@ -15,6 +15,7 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
@@ -184,6 +185,9 @@ class Congestion : Fragment(){
                         // Examples: "bar1", "bar3" are deleted
                         barDel to FieldValue.delete()
                     )
+            val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+            val userDocumentRef = FirebaseFirestore.getInstance().collection("UserAccounts").document(currentUserID ?: "")
+            userDocumentRef?.update("num_bars_visited", FieldValue.increment(-1))
             // Updates the firebase document with the same fields but specific fields are removed
             doc.update(update)
             // Removes the deleted bar from the array list so it's not sent to congestion_map

@@ -8,6 +8,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RatingBar
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import android.widget.Toast
 
@@ -41,6 +43,9 @@ class RateRecipe : Fragment() {
                 Toast.makeText(activity, "Please fill out the fields",Toast.LENGTH_SHORT).show()
             }
 
+            val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+            val userDocumentRef = FirebaseFirestore.getInstance().collection("UserAccounts").document(currentUserID ?: "")
+            userDocumentRef?.update("num_recipes_rated", FieldValue.increment(1))
         }
         return view
     }

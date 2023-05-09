@@ -10,6 +10,8 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
@@ -74,6 +76,12 @@ class Recipe : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_recipe, container, false)
+    }
+
+    fun updateNumOfRecipesViewed() {
+        val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+        val userDocumentRef = FirebaseFirestore.getInstance().collection("UserAccounts").document(currentUserID ?: "")
+        userDocumentRef?.update("num_recipes_viewed", FieldValue.increment(1))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -541,6 +549,8 @@ class Recipe : Fragment() {
                 setFragmentResult("recipeKey", bundleOf("recipe6" to friendsRecipe6))
             }
             navController.navigate(R.id.action_recipe_to_recipeView)
+
+            updateNumOfRecipesViewed()
         }
         recipe2image.setOnClickListener() {
             if ((nextButton.visibility == View.VISIBLE) && (!friendsActive)) {
@@ -554,6 +564,8 @@ class Recipe : Fragment() {
                 setFragmentResult("recipeKey", bundleOf("recipe7" to friendsRecipe7))
             }
             navController.navigate(R.id.action_recipe_to_recipeView)
+
+            updateNumOfRecipesViewed()
         }
         recipe3image.setOnClickListener() {
             if ((nextButton.visibility == View.VISIBLE) && (!friendsActive)) {
@@ -567,6 +579,8 @@ class Recipe : Fragment() {
                 setFragmentResult("recipeKey", bundleOf("recipe8" to friendsRecipe8))
             }
             navController.navigate(R.id.action_recipe_to_recipeView)
+
+            updateNumOfRecipesViewed()
         }
         recipe4image.setOnClickListener() {
             if ((nextButton.visibility == View.VISIBLE) && (!friendsActive)) {
@@ -580,6 +594,8 @@ class Recipe : Fragment() {
                 setFragmentResult("recipeKey", bundleOf("recipe9" to friendsRecipe9))
             }
             navController.navigate(R.id.action_recipe_to_recipeView)
+
+            updateNumOfRecipesViewed()
         }
         recipe5image.setOnClickListener() {
             if ((nextButton.visibility == View.VISIBLE) && (!friendsActive)) {
@@ -593,6 +609,8 @@ class Recipe : Fragment() {
                 setFragmentResult("recipeKey", bundleOf("recipe10" to friendsRecipe10))
             }
             navController.navigate(R.id.action_recipe_to_recipeView)
+
+            updateNumOfRecipesViewed()
         }
     }
     fun resetFriendsRecipes() {
